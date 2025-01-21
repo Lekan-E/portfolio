@@ -9,6 +9,31 @@
 	</head>
 	<body class="is-preload">
 
+
+		<!--Back to top button-->
+		<button id="backToTop" title="Go to top">Top</button>
+
+		<script>
+			// Get the button
+			const backToTopButton = document.getElementById("backToTop");
+		  
+			// Show the button when the user scrolls down 20px from the top
+			window.onscroll = function () {
+			  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				backToTopButton.style.display = "block";
+			  } else {
+				backToTopButton.style.display = "none";
+			  }
+			};
+		  
+			// Scroll back to the top when the button is clicked
+			backToTopButton.onclick = function () {
+			  window.scrollTo({ top: 0, behavior: 'smooth' });
+			};
+		  </script>
+		  
+
+
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -18,7 +43,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a class="logo"><strong>Razak Elegbede</strong> | lekanelegbede414@gmail.com</a>
+									<a class="logo" href="index.html"><strong>Razak Elegbede</strong> | lekanelegbede414@gmail.com</a> 
 									<ul class="icons">
 										<li><a href="https://www.linkedin.com/in/lekanelegbede/" target="_blank" class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
 										<li><a href="https://github.com/Lekan-E" target="_blank"  class="icon brands fa-github"><span class="label">Github</span></a></li>
@@ -26,6 +51,7 @@
 										<li><a href="https://www.youtube.com/@razakviz" target="_blank" class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
 									</ul>
 								</header>
+
 
 							<!-- Content -->
 							<section>
@@ -46,7 +72,7 @@
 								<p></p>
 									<p >Analyzing product sales record for a retail company, using Python and SQL to identify sales trends and performance by product category and customer region. </p>
 								
-									<div class='tableauPlaceholder' id='viz1737138710614' style= "width: 100%; position: relative; background: white; border-radius: 8px; padding: 5px;">
+									<div class='tableauPlaceholder' id='viz1737138710614' style= "display: block; margin: auto; width: 80%; position: relative; background: white;">
 										<noscript><a href='#'>
 											<img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ma&#47;MavinHRSalesOverview&#47;Dashboard1&#47;1_rss.png' style='border: none' />
 										</a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
@@ -81,7 +107,7 @@
 									</script>
 
 									<p> </p>
-									<div class='tableauPlaceholder' id='viz1737140592722' style="display: block; margin: auto; width: 100%; position: relative; background: white; border-radius: 8px; padding: 5px;"><noscript><a href='#'><img alt='Map Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;HR&#47;HRMapOverview&#47;MapDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='HRMapOverview&#47;MapDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;HR&#47;HRMapOverview&#47;MapDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1737140592722');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1425px';vizElement.style.height='932px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1425px';vizElement.style.height='932px';} else { vizElement.style.width='100%';vizElement.style.height='2027px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+									<div class='tableauPlaceholder' id='viz1737140592722' style="display: block; margin: auto; width: 80%; position: relative; background: white; "><noscript><a href='#'><img alt='Map Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;HR&#47;HRMapOverview&#47;MapDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='HRMapOverview&#47;MapDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;HR&#47;HRMapOverview&#47;MapDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1737140592722');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1425px';vizElement.style.height='932px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1425px';vizElement.style.height='932px';} else { vizElement.style.width='100%';vizElement.style.height='2027px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
 
 									<!--End-to-End Monthly-->
 									<hr class="major" />
@@ -90,7 +116,7 @@
 									<p>An end-to-end dashboard that tracks and provides stakeholders with detailed insights on company's KPIs, the revenue generated, total number of trips, 
 										insights into ride details such as trip duration, revenue from the trip and start/end time station over a specified period.</p>
 								
-									<div class='tableauPlaceholder' id='viz1737141149010' style="display: block; margin: auto; width: 100%; position: relative; background: white; border-radius: 8px; padding: 5px;"><noscript><a href='#'><img alt='Ride Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;HR&#47;HRDailyRidesDashboard&#47;RideDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='HRDailyRidesDashboard&#47;RideDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;HR&#47;HRDailyRidesDashboard&#47;RideDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1737141149010');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1500px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1500px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='2977px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+									<div class='tableauPlaceholder' id='viz1737141149010' style="display: block; margin: auto; width: 80%; position: relative; background: white; border-radius: 8px; padding: 5px;"><noscript><a href='#'><img alt='Ride Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;HR&#47;HRDailyRidesDashboard&#47;RideDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='HRDailyRidesDashboard&#47;RideDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;HR&#47;HRDailyRidesDashboard&#47;RideDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1737141149010');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1500px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1500px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='2977px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
 
 									<p> </p>
 
@@ -101,7 +127,7 @@
 									<p>This interactive dashboard visualizes the changes in gas prices across Canada from 1990 to 2024, using monthly data from self-service filling stations provided by Statistics Canada. 
 										It focuses on price fluctuations across different provinces, uncovering insights on key metrics such as year-over-year changes, average costs, and seasonal price variations.</p>
 								
-										<div class='tableauPlaceholder' id='viz1737141518685' style="display: block; margin: auto; width: 100%; position: relative; background: white; border-radius: 8px; padding: 5px;"><noscript><a href='#'><img alt='Main Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ga&#47;GasPriceDashboard_17278422265350&#47;MainDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='GasPriceDashboard_17278422265350&#47;MainDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ga&#47;GasPriceDashboard_17278422265350&#47;MainDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1737141518685');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1425px';vizElement.style.height='932px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1425px';vizElement.style.height='932px';} else { vizElement.style.width='100%';vizElement.style.height='3077px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+										<div class='tableauPlaceholder' id='viz1737141518685' style="display: block; margin: auto; width: 80%; position: relative; background: white; border-radius: 8px; padding: 5px;"><noscript><a href='#'><img alt='Main Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ga&#47;GasPriceDashboard_17278422265350&#47;MainDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='GasPriceDashboard_17278422265350&#47;MainDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ga&#47;GasPriceDashboard_17278422265350&#47;MainDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1737141518685');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1425px';vizElement.style.height='932px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1425px';vizElement.style.height='932px';} else { vizElement.style.width='100%';vizElement.style.height='3077px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
 
 									<p> </p>
 
@@ -111,7 +137,7 @@
 									<p></p>
 									<p>This visualization shows over 7,000 auto thefts recorded by the Ottawa Police Service (OPS) from 2018-2013, identify high-risk areas in Ottawa</p>
 								
-										<div class='tableauPlaceholder' id='viz1737142022270' style="display: block; margin: auto; width: 100%; position: relative; background: white; border-radius: 8px; padding: 5px;"><noscript><a href='#'><img alt='Auto Theft Map ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Au&#47;AutoTheftinOttawa2018-2023&#47;AutoTheftMap&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='AutoTheftinOttawa2018-2023&#47;AutoTheftMap' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Au&#47;AutoTheftinOttawa2018-2023&#47;AutoTheftMap&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1737142022270');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+										<div class='tableauPlaceholder' id='viz1737142022270' style="display: block; margin: auto; width: 80%; position: relative; background: white; border-radius: 8px; padding: 5px;"><noscript><a href='#'><img alt='Auto Theft Map ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Au&#47;AutoTheftinOttawa2018-2023&#47;AutoTheftMap&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='AutoTheftinOttawa2018-2023&#47;AutoTheftMap' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Au&#47;AutoTheftinOttawa2018-2023&#47;AutoTheftMap&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1737142022270');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
 
 									<p> </p>
 
@@ -122,50 +148,7 @@
 					</div>
 
 				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-
-							<!-- Menu -->
-							<nav id="menu">
-								<header class="major">
-									<h2>Menu</h2>
-								</header>
-								<ul>
-									<li><a href="index.html">Home</a></li>
-									<li><a href="stakeholder.html">Stakeholder Projects</a></li>
-									<li><a href="personal.html">Personal Projects</a></li>
-									<li><a href="viz.html">BI Visualizations</a></li>
-									<li><a href="sports.html">Sports Projects</a></li>
-									<li>
-										<span class="opener">Connect</span>
-										<ul>
-											<li><a href="https://www.linkedin.com/in/lekanelegbede/" target="_blank">Linkedin</a></li>
-											<li><a href="https://x.com/razakviz" target="_blank">X/Twitter</a></li>
-											<li><a href="https://public.tableau.com/app/profile/lekanelegbede/vizzes" target="_blank">Tableau</a></li>
-											<li><a href="https://github.com/Lekan-E" target="_blank">Github</a></li>
-										</ul>
-									</li>
-									
-								</ul>
-							</nav>
-
-							<!-- Section -->
-							<section>
-								<header class="major">
-									<h2>Get in touch</h2>
-								</header>
-								<p></p>
-								<ul class="contact">
-									<li class="icon solid fa-envelope"><a href="#">lekanelegbede414@gmail.com</a></li>
-									<li class="icon solid fa-phone">(613) 799-2460</li>
-									<li class="icon solid fa-home">Toronto, Canada</li>
-								</ul>
-							</section>
-
-							<!-- Footer -->
-							
-						</div>
-					</div>
+					
 
 			</div>
 

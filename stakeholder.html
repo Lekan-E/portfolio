@@ -9,6 +9,28 @@
 	</head>
 	<body class="is-preload">
 
+		<!--Back to top button-->
+		<button id="backToTop" title="Go to top">Top</button>
+
+		<script>
+			// Get the button
+			const backToTopButton = document.getElementById("backToTop");
+		  
+			// Show the button when the user scrolls down 20px from the top
+			window.onscroll = function () {
+			  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				backToTopButton.style.display = "block";
+			  } else {
+				backToTopButton.style.display = "none";
+			  }
+			};
+		  
+			// Scroll back to the top when the button is clicked
+			backToTopButton.onclick = function () {
+			  window.scrollTo({ top: 0, behavior: 'smooth' });
+			};
+		  </script>
+
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -18,7 +40,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a class="logo"><strong>Razak Elegbede</strong> | lekanelegbede414@gmail.com</a>
+									<a class="logo" href="index.html"><strong>Razak Elegbede</strong> | lekanelegbede414@gmail.com</a> 
 									<ul class="icons">
 										<li><a href="https://www.linkedin.com/in/lekanelegbede/" target="_blank" class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
 										<li><a href="https://github.com/Lekan-E" target="_blank"  class="icon brands fa-github"><span class="label">Github</span></a></li>
