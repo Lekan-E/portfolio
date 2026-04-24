@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>XGBoost Price Prediction | Olamilekan E</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../assets/css/main.css" />
+	<link rel="stylesheet" href="../assets/css/project.css" />
+</head>
+<body class="is-preload">
+
+	<script>
+		document.body.setAttribute("data-theme", localStorage.getItem("theme") || "dark");
+	</script>
+
+	<div id="wrapper">
+		<div id="main">
+			<div class="inner">
+
+				<!-- Top Nav -->
+				<nav class="project-nav">
+					<a href="../index.html#projects" class="back-link">
+						<span class="back-arrow">&#8592;</span> Back to Portfolio
+					</a>
+					<span class="project-nav-logo"><strong style="color:var(--accent-color)">OE</strong></span>
+					<button id="theme-toggle" title="Toggle light/dark mode" onclick="toggleTheme()">
+						<svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+						<svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+					</button>
+				</nav>
+				<script>
+					function toggleTheme() {
+						const isDark = document.body.getAttribute("data-theme") === "dark";
+						document.body.setAttribute("data-theme", isDark ? "light" : "dark");
+						localStorage.setItem("theme", isDark ? "light" : "dark");
+						document.getElementById("theme-icon-moon").style.display = isDark ? "none" : "block";
+						document.getElementById("theme-icon-sun").style.display = isDark ? "block" : "none";
+					}
+					// Sync icon with current theme on load
+					(function() {
+						if ((localStorage.getItem("theme") || "dark") === "light") {
+							document.getElementById("theme-icon-moon").style.display = "none";
+							document.getElementById("theme-icon-sun").style.display = "block";
+						}
+					})();
+				</script>
+
+				<!-- Article Header -->
+				<header class="project-header">
+					<div class="project-meta">
+						<span class="project-category">Machine Learning &nbsp;·&nbsp; Predictive Modelling</span>
+						<span class="project-date">November 2024 &nbsp;·&nbsp; 6 min read</span>
+					</div>
+					<h1 class="project-title">XGBoost: Predicting Trip Duration Using Machine Learning</h1>
+					<p class="project-subtitle">
+						A bike-share company needed an ETA feature to give riders fare estimates before they set off. This project delivers a gradient-boosted regression model trained on over 5 million trips, wrapped in a live Streamlit application.
+					</p>
+					<div class="project-tags">
+						<span class="tag">Python</span>
+						<span class="tag">XGBoost</span>
+						<span class="tag">Streamlit</span>
+						<span class="tag">Maps API</span>
+						<span class="tag">OpenAI GPT-4</span>
+						<span class="tag">Machine Learning</span>
+					</div>
+					<div class="project-actions">
+						<a href="https://bikeshare-app.streamlit.app/" target="_blank" class="button primary">Launch App</a>
+						<a href="https://medium.com/@lekanelegbede414/xgboost-predicting-trip-duration-using-machine-learning-3510b5bc7ae2" target="_blank" class="button">Read on Medium</a>
+						<a href="https://github.com/Lekan-E/Predicting-Trip-Duration-using-XGBoost" target="_blank" class="button">GitHub</a>
+					</div>
+				</header>
+
+				<!-- Hero Image -->
+				<div class="project-hero">
+					<img src="../images/data/bike-app.png" alt="XGBoost Bikeshare Price Prediction App" />
+				</div>
+
+				<!-- Article Body -->
+				<div class="project-body">
+
+					<!-- The Problem -->
+					<section class="project-section">
+						<h2>The Problem</h2>
+						<p>
+							The CEO of a bike-share company is looking to enhance customer experience by introducing a feature that provides users with an estimated trip duration (ETA) when travelling between stations.
+						</p>
+						<p>
+							Beyond user experience, the feature unlocks real business value: accurate ETAs enable fare estimation, improve revenue tracking, and give riders clear cost expectations before they tap to ride. The challenge was building a model accurate enough to be trusted at scale, across varying weather conditions, station distances, membership types, and bike categories.
+						</p>
+						<p>
+							The model's predictions will be integrated into a user-friendly Streamlit application, allowing riders to input their trip details and receive an estimated duration and fare before they start their ride. This project not only demonstrates the power of machine learning in solving real-world problems but also provides a practical tool that enhances the overall user experience for bike-share customers.
+						</p>
+					</section>
+
+					<!-- Data -->
+					<section class="project-section">
+						<h2>The Data</h2>
+						<p>Three data sources were combined to build a complete picture of each trip:</p>
+						<div class="data-sources">
+							<div class="data-source-card">
+								<span class="data-num">5M+</span>
+								<h3>Historical Trip Records</h3>
+								<p>Two full years of ride data (2020–2021), covering start/end stations, bike type, membership, and trip duration.</p>
+							</div>
+							<div class="data-source-card">
+								<span class="data-num">8,785</span>
+								<h3>Hourly Weather Records</h3>
+								<p>Temperature, wind speed, humidity, and weather condition for every hour — merged with trips by timestamp to capture real-world riding conditions.</p>
+							</div>
+							<div class="data-source-card">
+								<span class="data-num">Web Scraped</span>
+								<h3>City Holiday Dates</h3>
+								<p>2021  public holidays, scraped and added as a binary feature to capture anomalous ridership patterns on non-working days.</p>
+							</div>
+						</div>
+					</section>
+
+					<!-- EDA -->
+					<section class="project-section">
+						<h2>Data Exploration (EDA)</h2>
+						<P>
+							During EDA, we analyzed factors influencing ride durations, such as time of day, day of the week, and month. Weather data provided insights into how temperature, humidity, and wind speed impacted trip times. Below is a simple correlation matrix between our features — 1 being the highest correlation.
+						</P>
+
+						<div class="project-image-row project-image-centered">
+							<figure>
+								<img src="../images/projects/bikefare/correlation.png" alt="Ride volume and trends" />
+								<figcaption>Correlation Matrix</figcaption>
+							</figure>
+						</div>
+						<p>
+							Correlation analysis pointed to one dominant predictor: <strong>geographical distance between stations</strong>. The further apart the start and end points, the longer the ride. Weather, time of day, and bike type added signal on top, but distance was the foundation.
+						</p>
+
+						<p>Taking a deeper look at the ride duration by member type, casual riders were observed to have longer trip durations, likely due to leisure or tourism activities, whereas members tended to use the service for commuting. These distinctions will aid in the model’s predictions.</p>
+						<div class="project-image-row project-image-centered">
+							<figure>
+								<img src="../images/projects/bikefare/memberdistribution.png" alt="Ride volume and trends" />
+								<figcaption>Box plot showing ride duration by member type</figcaption>
+							</figure>
+						</div>
+					</section>
+
+					<!-- Methodology -->
+					<section class="project-section">
+						<h2>Methodology</h2>
+						<p>For the machine learning model selection, since we are aiming to predict a continuous target variable, we will use the XGBoost Regression Model. This supervised ML algorithm is particularly effective for large datasets, making it well-suited for accurately predicting trip durations based on a variety of features.</p>
+						<div class="tech-steps">
+							<div class="tech-step">
+								<span class="step-num">01</span>
+								<div>
+									<h3>Preprocessing &amp; Feature Selection</h3>
+									<p>High-correlation features were identified and retained. Low-signal columns were dropped. A 500K-record training sample was drawn to keep computation tractable without sacrificing representativeness.</p>
+								</div>
+							</div>
+							<div class="tech-step">
+								<span class="step-num">02</span>
+								<div>
+									<h3>Feature Encoding</h3>
+									<p>Categorical variables — bike type, membership tier, and weather condition — were mapped to numerical values. Label encoding was used for ordinal categories; binary flags for conditions like holidays and peak hours.</p>
+								</div>
+							</div>
+							<div class="tech-step">
+								<span class="step-num">03</span>
+								<div>
+									<h3>Distance Feature Engineering</h3>
+									<p>First step was to calculate the geographical distance (km) between two the start and end stations, given their positions (latitude and longitude) as we saw in the EDA, this feature was the most important in determining the duration.</p>
+								</div>
+							</div>
+							<div class="tech-step">
+								<span class="step-num">04</span>
+								<div>
+									<h3>Outlier Removal</h3>
+									<p>Dropping trips that started and ended at the same docking station. If we were to calculate the distance, it would return a distance of 0 km. But in reality, these are trips where the cyclist likely rode to and from the same station.
+									<p>Additionally, I decided to drop rides running longer than 20 km from each station as these outliers could affect the model performance</p>
+								</div>
+							</div>
+							<div class="tech-step">
+								<span class="step-num">05</span>
+								<div>
+									<h3>Hyperparameter Tuning</h3>
+									<p>GridSearchCV was used to optimise XGBoost parameters — learning rate, max depth, number of estimators, and subsampling — with mean absolute error (MAE) as the target metric.</p>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- Results -->
+					<section class="project-section">
+						<h2>Model Evaluation</h2>
+						<p>After tuning, the model was evaluated. The results represent a strong baseline for a production ETA feature:</p>
+						<div class="metrics-grid">
+							<div class="metric-card">
+								<span class="metric-value">225.93s</span>
+								<span class="metric-label">Mean Absolute Error (MAE)</span>
+								<span class="metric-note">~3 min 46 sec off on average</span>
+							</div>
+							<div class="metric-card">
+								<span class="metric-value">348.92s</span>
+								<span class="metric-label">Root Mean Squared Error (RMSE)</span>
+								<span class="metric-note">Penalises larger misses more heavily</span>
+							</div>
+							<div class="metric-card">
+								<span class="metric-value">0.61</span>
+								<span class="metric-label">Explained Variance Score</span>
+								<span class="metric-note">61% of trip duration variance explained</span>
+							</div>
+						</div>
+						<p style="margin-top:1.5rem;">The error distribution reveals some critical insights:</p>
+						<ul class="insights-list">
+							<li><strong>Impact on Short and Long Trips:</strong> The XGBoost model had an MAE of approximately 3 minutes, 75 seconds, which equates to about 27% of the average ride duration from all trips in our data. This suggests that, on average, the model's predictions are off by a few minutes, which can be a larger proportion of total ride time for shorter trips and a relatively minor issue for longer trips. For example, a 3-minute error is more impactful in a 10-minute trip than in a 40-minute one.</li>
+							<li><strong>Effect of Outliers:</strong> The MAE and RMSE show higher variability, likely due to outliers in the dataset, such as longer, unpredictable rides taken by casual users. Casual riders often have more exploratory travel patterns, unlike members who typically follow predictable routes.</li>
+						</ul>
+
+						<div class="project-image-row project-image-centered">
+							<figure>
+								<img src="../images/projects/bikefare/residuals.png" alt="Residuals plot" />
+								<figcaption>Residuals plot showing prediction errors</figcaption>
+							</figure>
+						</div>
+
+						<ul class="insights-list">
+							<li><strong>Centering Around Zero:</strong> The residuals are centered around zero, with a roughly bell-shaped curve, which indicates that, on average, the model does not overestimate or underestimate the ride durations. This is a good sign, as it suggests the model is unbiased. </li>
+							<li><strong>Narrow Peak and Tails:</strong> The narrow peak near zero suggests that the majority of the residuals are close to zero, indicating that the model performs well for most predictions, with small errors. However, there are longer tails, especially on the positive side, which means there are some cases where the model either underestimates or overestimates ride duration. These outliers could result from variations in the data that the model does not capture well, such as unusual ride patterns.</li>
+						</ul>
+					</section>
+
+					<!-- App -->
+					<section class="project-section">
+						<h2>The Application</h2>
+						<p>
+							The model was deployed as an interactive Streamlit web app, giving any rider a pre-trip estimate in seconds. Users select start station, end station, membership type, and bike type — and the app returns estimated duration, trip cost, and an optimal route on a live map.
+						</p>
+						<p>
+							An OpenAI GPT-4 integration generates a natural-language route description for the selected stations — turning raw coordinates into a readable, human-friendly journey summary. The app supports four practical use cases:
+						</p>
+						<ul class="use-case-list">
+							<li><strong>Trip cost estimation</strong> — know your fare before you ride</li>
+							<li><strong>Route visualisation</strong> — see your path on a live map</li>
+							<li><strong>Commute planning</strong> — real-time ETA for regular routes</li>
+							<li><strong>Member conversion</strong> — side-by-side pricing for casual vs. member fares</li>
+						</ul>
+					</section>
+
+					<!-- Conclusion -->
+					<section class="project-section">
+						<h2>Conclusion &amp; Next Steps</h2>
+						<p>
+							XGBoost delivered a strong predictive baseline for trip duration estimation — accurate enough to power a live fare estimation feature, and deployable within a polished user-facing application.
+						</p>
+						<p>
+							The primary weakness is prediction accuracy for short trips, where a 3-minute error is proportionally large. Future work would focus on enhanced feature engineering for short-distance rides, or experimenting with outlier-robust models such as neural networks for the casual rider segment specifically.
+						</p>
+					</section>
+
+					<!-- Footer CTA -->
+					<section class="project-cta">
+						<h2>Explore the Project</h2>
+						<p>Try the live application, read the full write-up, or browse the code.</p>
+						<div class="project-actions">
+							<a href="https://bikeshare-app.streamlit.app/" target="_blank" class="button primary">Launch App</a>
+							<a href="https://medium.com/@lekanelegbede414/xgboost-predicting-trip-duration-using-machine-learning-3510b5bc7ae2" target="_blank" class="button">Read on Medium</a>
+							<a href="https://github.com/Lekan-E/Predicting-Trip-Duration-using-XGBoost" target="_blank" class="button">GitHub</a>
+						</div>
+					</section>
+
+				</div><!-- /.project-body -->
+
+			</div><!-- /.inner -->
+		</div><!-- /#main -->
+	</div><!-- /#wrapper -->
+
+</body>
+</html>

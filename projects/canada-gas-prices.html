@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Canada Gas Price Analysis | Olamilekan E</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../assets/css/main.css" />
+	<link rel="stylesheet" href="../assets/css/project.css" />
+</head>
+<body class="is-preload">
+	<script>document.body.setAttribute("data-theme", localStorage.getItem("theme") || "dark");</script>
+	<div id="wrapper"><div id="main"><div class="inner">
+
+		<nav class="project-nav">
+			<a href="../index.html#projects" class="back-link"><span class="back-arrow">&#8592;</span> Back to Portfolio</a>
+			<span class="project-nav-logo"><strong style="color:var(--accent-color)">OE</strong></span>
+			<button id="theme-toggle" title="Toggle light/dark mode" onclick="toggleTheme()">
+				<svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+				<svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+			</button>
+		</nav>
+		<script>
+			function toggleTheme() {
+				const isDark = document.body.getAttribute("data-theme") === "dark";
+				document.body.setAttribute("data-theme", isDark ? "light" : "dark");
+				localStorage.setItem("theme", isDark ? "light" : "dark");
+				document.getElementById("theme-icon-moon").style.display = isDark ? "none" : "block";
+				document.getElementById("theme-icon-sun").style.display = isDark ? "block" : "none";
+			}
+			(function() {
+				if ((localStorage.getItem("theme") || "dark") === "light") {
+					document.getElementById("theme-icon-moon").style.display = "none";
+					document.getElementById("theme-icon-sun").style.display = "block";
+				}
+			})();
+		</script>
+
+		<header class="project-header">
+			<div class="project-meta">
+				<span class="project-category">Research Analysis &nbsp;·&nbsp; Data Visualisation</span>
+				<span class="project-date">2024</span>
+			</div>
+			<h1 class="project-title">Canada: Gas Price Research Analysis from 1990 – 2024</h1>
+			<p class="project-subtitle">A 34-year deep dive into Canadian gas price trends — examining provincial variation, year-over-year changes, and the seasonal forces that move the pump price every summer.</p>
+			<div class="project-tags">
+				<span class="tag">Python</span>
+				<span class="tag">Tableau</span>
+				<span class="tag">MySQL</span>
+				<span class="tag">Excel</span>
+				<span class="tag">Statistics Canada</span>
+			</div>
+			<div class="project-actions">
+				<a href="https://public.tableau.com/views/GasPriceDashboard_17278422265350/MainDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" class="button primary">Dashboard</a>
+				<a href="https://github.com/Lekan-E/Analysis-of-Canadian-Gas-Prices" target="_blank" class="button">GitHub</a>
+			</div>
+		</header>
+
+		<div class="project-hero">
+			<img src="../images/data/Gas Dashboard.png" alt="Canada Gas Price Dashboard" />
+		</div>
+
+		<div class="project-body">
+
+			<section class="project-section">
+				<h2>Overview</h2>
+				<p>Gas prices affect every Canadian — from commuters to trucking companies to provincial governments setting fuel tax policy. Yet most reporting focuses on the current price at the pump, rarely contextualising it against long-term trends.</p>
+				<p>This research project uses monthly self-service filling station data from Statistics Canada to trace price movements across all provinces from 1990 to 2024, surfacing the structural trends and anomalies that define Canada's fuel pricing history.</p>
+			</section>
+
+			<section class="project-section">
+				<h2>The Data</h2>
+				<p>Monthly average gas price data was sourced from Statistics Canada's open dataset covering self-service stations. The dataset was cleaned, structured in MySQL, and enriched with provincial metadata before analysis.</p>
+				<div class="data-sources">
+					<div class="data-source-card">
+						<span class="data-num">34</span>
+						<h3>Years of Data</h3>
+						<p>Monthly records from 1990 to 2024, providing a full generational view of Canadian fuel pricing.</p>
+					</div>
+					<div class="data-source-card">
+						<span class="data-num">13</span>
+						<h3>Provinces &amp; Territories</h3>
+						<p>Coverage across all Canadian provinces and select territories, enabling direct regional comparisons.</p>
+					</div>
+					<div class="data-source-card">
+						<span class="data-num">Statistics Canada</span>
+						<h3>Data Source</h3>
+						<p>Official government monthly price survey data — the most authoritative source available for long-run price analysis.</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="project-section">
+				<h2>Key Findings</h2>
+				<ul class="insights-list">
+					<li><strong>Long-run Price Acceleration:</strong> Average national gas prices rose over 300% between 1990 and 2022, with the steepest increases clustered around the 2008 global oil shock and the 2021–2022 post-pandemic supply crunch.</li>
+					<li><strong>Provincial Spread:</strong> BC and Ontario consistently recorded the highest average prices, driven by higher provincial fuel taxes and carbon levies. Prairie provinces (Alberta, Saskatchewan) sat notably below the national average due to lower tax regimes and proximity to oil production.</li>
+					<li><strong>Seasonal Patterns:</strong> A reliable summer premium emerged in the data — prices consistently peaked in June–July and troughed in January–February, driven by refinery switchovers and driving season demand.</li>
+					<li><strong>Year-over-Year Volatility:</strong> 2008 and 2022 recorded the largest single-year price spikes (>30% YoY), while 2015 and 2020 saw the sharpest drops tied to global oil oversupply and demand collapse during COVID-19.</li>
+				</ul>
+			</section>
+
+			<section class="project-section">
+				<h2>Methodology</h2>
+				<div class="tech-steps">
+					<div class="tech-step">
+						<span class="step-num">01</span>
+						<div>
+							<h3>Data Extraction &amp; Storage</h3>
+							<p>Raw CSV data from Statistics Canada was imported into a MySQL database. Provincial codes were normalised and duplicate entries were removed.</p>
+						</div>
+					</div>
+					<div class="tech-step">
+						<span class="step-num">02</span>
+						<div>
+							<h3>Python Analysis</h3>
+							<p>Pandas was used to compute rolling averages, year-over-year change rates, and seasonal decomposition. Outlier years were flagged for contextual annotation.</p>
+						</div>
+					</div>
+					<div class="tech-step">
+						<span class="step-num">03</span>
+						<div>
+							<h3>Tableau Dashboard</h3>
+							<p>An interactive Tableau dashboard was built to let users explore prices by province, year range, and metric — combining a map view with trend lines and YoY comparison charts.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="project-cta">
+				<h2>Explore the Project</h2>
+				<p>Explore the interactive dashboard or browse the full code on GitHub.</p>
+				<div class="project-actions">
+					<a href="https://public.tableau.com/views/GasPriceDashboard_17278422265350/MainDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" class="button primary">Dashboard</a>
+					<a href="https://github.com/Lekan-E/Analysis-of-Canadian-Gas-Prices" target="_blank" class="button">GitHub</a>
+				</div>
+			</section>
+
+		</div>
+	</div></div></div>
+</body>
+</html>

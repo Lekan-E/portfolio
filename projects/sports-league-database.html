@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Sports League Database | Olamilekan E</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../assets/css/main.css" />
+	<link rel="stylesheet" href="../assets/css/project.css" />
+</head>
+<body class="is-preload">
+	<script>document.body.setAttribute("data-theme", localStorage.getItem("theme") || "dark");</script>
+	<div id="wrapper"><div id="main"><div class="inner">
+
+		<nav class="project-nav">
+			<a href="../index.html#projects" class="back-link"><span class="back-arrow">&#8592;</span> Back to Portfolio</a>
+			<span class="project-nav-logo"><strong style="color:var(--accent-color)">OE</strong></span>
+			<button id="theme-toggle" title="Toggle light/dark mode" onclick="toggleTheme()">
+				<svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+				<svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+			</button>
+		</nav>
+		<script>
+			function toggleTheme() {
+				const isDark = document.body.getAttribute("data-theme") === "dark";
+				document.body.setAttribute("data-theme", isDark ? "light" : "dark");
+				localStorage.setItem("theme", isDark ? "light" : "dark");
+				document.getElementById("theme-icon-moon").style.display = isDark ? "none" : "block";
+				document.getElementById("theme-icon-sun").style.display = isDark ? "block" : "none";
+			}
+			(function() {
+				if ((localStorage.getItem("theme") || "dark") === "light") {
+					document.getElementById("theme-icon-moon").style.display = "none";
+					document.getElementById("theme-icon-sun").style.display = "block";
+				}
+			})();
+		</script>
+
+		<header class="project-header">
+			<div class="project-meta">
+				<span class="project-category">Database Design &nbsp;·&nbsp; SQL</span>
+				<span class="project-date">2024</span>
+			</div>
+			<h1 class="project-title">Database Design: A Sports League Booking and Automation System</h1>
+			<p class="project-subtitle">An end-to-end relational database that automates league creation, team signups, field rentals, payment processing, and cancellations for a community sports organisation.</p>
+			<div class="project-tags">
+				<span class="tag">SQL</span>
+				<span class="tag">Database Design</span>
+				<span class="tag">Automation</span>
+				<span class="tag">Stored Procedures</span>
+				<span class="tag">Triggers</span>
+			</div>
+			<div class="project-actions">
+				<a href="https://github.com/Lekan-E/Sports-League-Booking-and-Registration-System" target="_blank" class="button primary">GitHub</a>
+			</div>
+		</header>
+
+		<div class="project-hero">
+			<img src="../images/data/portfolio db image.jpg" alt="Sports League Database System" />
+		</div>
+
+		<div class="project-body">
+
+			<section class="project-section">
+				<h2>Overview</h2>
+				<p>Community sports leagues run on a tangle of spreadsheets, group chats, and manual processes — ripe for missed registrations, double-booked fields, and payment confusion. This project replaces that chaos with a purpose-built relational database system that automates the full league management lifecycle.</p>
+				<p>From initial league creation through to team signups, field rental scheduling, payment tracking, and cancellation handling — every process is modelled, automated, and secured through SQL stored procedures, triggers, and role-based user privileges.</p>
+			</section>
+
+			<section class="project-section">
+				<h2>System Capabilities</h2>
+				<ul class="insights-list">
+					<li><strong>League Management:</strong> Admins can create new leagues with defined start dates, sport types, maximum team counts, and fee structures — all stored in a normalised schema that prevents data duplication.</li>
+					<li><strong>Team Registration:</strong> Teams sign up through a stored procedure that validates available slots, checks payment status, and automatically updates league rosters — eliminating overbooking.</li>
+					<li><strong>Field Rental Scheduling:</strong> A booking system manages field availability across multiple venues and time slots, preventing double-booking through constraint-based conflict detection.</li>
+					<li><strong>Payment Processing:</strong> Payments are recorded against team and rental records. Triggers automatically update payment status and flag overdue accounts for admin follow-up.</li>
+					<li><strong>Cancellation Handling:</strong> Cancellations trigger a cascade of updates — freeing field slots, adjusting team counts, and recording refund eligibility based on cancellation timing rules.</li>
+				</ul>
+			</section>
+
+			<section class="project-section">
+				<h2>Technical Design</h2>
+				<div class="tech-steps">
+					<div class="tech-step">
+						<span class="step-num">01</span>
+						<div>
+							<h3>Requirements Gathering</h3>
+							<p>Business requirements were translated into entity relationships, identifying the core objects (League, Team, Player, Field, Booking, Payment) and the relationships between them.</p>
+						</div>
+					</div>
+					<div class="tech-step">
+						<span class="step-num">02</span>
+						<div>
+							<h3>Schema Design</h3>
+							<p>A fully normalised relational schema was designed to third normal form (3NF), eliminating redundancy and ensuring data integrity across all tables.</p>
+						</div>
+					</div>
+					<div class="tech-step">
+						<span class="step-num">03</span>
+						<div>
+							<h3>Stored Procedures &amp; Triggers</h3>
+							<p>Complex business logic — registration validation, payment status updates, cancellation cascades — was encapsulated in stored procedures and triggers to keep application logic in the database layer.</p>
+						</div>
+					</div>
+					<div class="tech-step">
+						<span class="step-num">04</span>
+						<div>
+							<h3>User Privileges</h3>
+							<p>Role-based access control was implemented with distinct privilege sets for admins, team managers, and read-only viewers — ensuring data security and appropriate access at each level.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="project-cta">
+				<h2>Explore the Project</h2>
+				<p>Browse the full schema, stored procedures, and documentation on GitHub.</p>
+				<div class="project-actions">
+					<a href="https://github.com/Lekan-E/Sports-League-Booking-and-Registration-System" target="_blank" class="button primary">GitHub</a>
+				</div>
+			</section>
+
+		</div>
+	</div></div></div>
+</body>
+</html>

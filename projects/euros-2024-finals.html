@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>EUROs 2024 Finals Report | Olamilekan E</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../assets/css/main.css" />
+	<link rel="stylesheet" href="../assets/css/project.css" />
+</head>
+<body class="is-preload">
+	<script>document.body.setAttribute("data-theme", localStorage.getItem("theme") || "dark");</script>
+	<div id="wrapper"><div id="main"><div class="inner">
+
+		<nav class="project-nav">
+			<a href="../index.html#personal" class="back-link"><span class="back-arrow">&#8592;</span> Back to Portfolio</a>
+			<span class="project-nav-logo"><strong style="color:var(--accent-color)">OE</strong></span>
+			<button id="theme-toggle" title="Toggle light/dark mode" onclick="toggleTheme()">
+				<svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+				<svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+			</button>
+		</nav>
+		<script>
+			function toggleTheme() {
+				const isDark = document.body.getAttribute("data-theme") === "dark";
+				document.body.setAttribute("data-theme", isDark ? "light" : "dark");
+				localStorage.setItem("theme", isDark ? "light" : "dark");
+				document.getElementById("theme-icon-moon").style.display = isDark ? "none" : "block";
+				document.getElementById("theme-icon-sun").style.display = isDark ? "block" : "none";
+			}
+			(function() {
+				if ((localStorage.getItem("theme") || "dark") === "light") {
+					document.getElementById("theme-icon-moon").style.display = "none";
+					document.getElementById("theme-icon-sun").style.display = "block";
+				}
+			})();
+		</script>
+
+		<header class="project-header">
+			<div class="project-meta">
+				<span class="project-category">Sports Analytics &nbsp;·&nbsp; Match Report</span>
+				<span class="project-date">2024</span>
+			</div>
+			<h1 class="project-title">Men's EUROs 2024 Finals Report — Spain vs England</h1>
+			<p class="project-subtitle">A comprehensive automated post-match tactical report for the UEFA Euro 2024 Final, covering match dynamics, xG, passing networks, shot maps, and individual player performances.</p>
+			<div class="project-tags">
+				<span class="tag">Python</span>
+				<span class="tag">Statsbomb API</span>
+				<span class="tag">Tableau</span>
+				<span class="tag">Football Analytics</span>
+				<span class="tag">Automated Reporting</span>
+			</div>
+			<div class="project-actions">
+				<a href="https://drive.google.com/file/d/1J2A8FqRaQfT-kiX4X8rQEu15248x4ucq/view?usp=sharing" target="_blank" class="button primary">Read Report</a>
+				<a href="https://github.com/Lekan-E/Automated-Post-Match-Analysis-Report" target="_blank" class="button">GitHub</a>
+			</div>
+		</header>
+
+		<div class="project-hero">
+			<img src="../images/sports/matchreport.png" alt="EUROs 2024 Finals Match Report" />
+		</div>
+
+		<div class="project-body">
+
+			<section class="project-section">
+				<h2>Overview</h2>
+				<p>The UEFA Euro 2024 Final between Spain and England was one of the most watched football matches of the year. Spain claimed the trophy 2-1, but the tactical story behind the result was more nuanced than the scoreline suggested.</p>
+				<p>This project demonstrates an automated post-match reporting pipeline — pulling Statsbomb event data for the final and generating a complete analytical report covering all key tactical dimensions of the match.</p>
+			</section>
+
+			<section class="project-section">
+				<h2>Report Sections</h2>
+				<div class="tech-steps">
+					<div class="tech-step">
+						<span class="step-num">01</span>
+						<div>
+							<h3>Match Summary &amp; xG Timeline</h3>
+							<p>An xG flow chart shows how match momentum shifted across 90 minutes — identifying the periods where each team created their best chances and how the actual scoreline compared to expected outcomes.</p>
+						</div>
+					</div>
+					<div class="tech-step">
+						<span class="step-num">02</span>
+						<div>
+							<h3>Shot Maps</h3>
+							<p>All shots from both teams are plotted on a pitch view, colour-coded by outcome and sized by xG value — showing where quality chances were created and how goalkeepers were tested.</p>
+						</div>
+					</div>
+					<div class="tech-step">
+						<span class="step-num">03</span>
+						<div>
+							<h3>Passing Networks</h3>
+							<p>Player passing connections are visualised as a network graph for each team, showing which players connected most frequently and the structural shape each team adopted during possession phases.</p>
+						</div>
+					</div>
+					<div class="tech-step">
+						<span class="step-num">04</span>
+						<div>
+							<h3>Player Performance Metrics</h3>
+							<p>Individual player statistics — touches, passes completed, key passes, dribbles, and defensive actions — are summarised for both squads in a structured performance table.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="project-section">
+				<h2>Automation Pipeline</h2>
+				<p>The report is built using a fully automated Python pipeline. Given a match ID, the system fetches all Statsbomb event data, computes all metrics, generates all visualisations using mplsoccer, and assembles the final report — with no manual steps required between data pull and output.</p>
+				<p>The pipeline is designed to be reusable for any match in the Statsbomb open data catalogue, making it a general-purpose tool for post-match reporting beyond this specific final.</p>
+			</section>
+
+			<section class="project-cta">
+				<h2>Explore the Project</h2>
+				<p>Read the full match report or explore the automated pipeline on GitHub.</p>
+				<div class="project-actions">
+					<a href="https://drive.google.com/file/d/1J2A8FqRaQfT-kiX4X8rQEu15248x4ucq/view?usp=sharing" target="_blank" class="button primary">Read Report</a>
+					<a href="https://github.com/Lekan-E/Automated-Post-Match-Analysis-Report" target="_blank" class="button">GitHub</a>
+				</div>
+			</section>
+
+		</div>
+	</div></div></div>
+</body>
+</html>

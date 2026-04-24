@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Player Pass Map | Olamilekan E</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../assets/css/main.css" />
+	<link rel="stylesheet" href="../assets/css/project.css" />
+</head>
+<body class="is-preload">
+	<script>document.body.setAttribute("data-theme", localStorage.getItem("theme") || "dark");</script>
+	<div id="wrapper"><div id="main"><div class="inner">
+
+		<nav class="project-nav">
+			<a href="../index.html#personal" class="back-link"><span class="back-arrow">&#8592;</span> Back to Portfolio</a>
+			<span class="project-nav-logo"><strong style="color:var(--accent-color)">OE</strong></span>
+			<button id="theme-toggle" title="Toggle light/dark mode" onclick="toggleTheme()">
+				<svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+				<svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+			</button>
+		</nav>
+		<script>
+			function toggleTheme() {
+				const isDark = document.body.getAttribute("data-theme") === "dark";
+				document.body.setAttribute("data-theme", isDark ? "light" : "dark");
+				localStorage.setItem("theme", isDark ? "light" : "dark");
+				document.getElementById("theme-icon-moon").style.display = isDark ? "none" : "block";
+				document.getElementById("theme-icon-sun").style.display = isDark ? "block" : "none";
+			}
+			(function() {
+				if ((localStorage.getItem("theme") || "dark") === "light") {
+					document.getElementById("theme-icon-moon").style.display = "none";
+					document.getElementById("theme-icon-sun").style.display = "block";
+				}
+			})();
+		</script>
+
+		<header class="project-header">
+			<div class="project-meta">
+				<span class="project-category">Sports Analytics &nbsp;·&nbsp; Visualisation</span>
+				<span class="project-date">2024</span>
+			</div>
+			<h1 class="project-title">Player Pass Map</h1>
+			<p class="project-subtitle">Visualising every pass made by a player in a match — evaluating distribution, accuracy, range, and the zones of the pitch they target most frequently.</p>
+			<div class="project-tags">
+				<span class="tag">Python</span>
+				<span class="tag">Tableau</span>
+				<span class="tag">Statsbomb API</span>
+				<span class="tag">Football Analytics</span>
+			</div>
+			<div class="project-actions">
+				<a href="https://public.tableau.com/app/profile/lekanelegbede/viz/NigeriaAFCONPassMap/Team" target="_blank" class="button primary">Dashboard</a>
+				<a href="https://github.com/Lekan-E/Sport-Projects/tree/main/Pass%20Map" target="_blank" class="button">GitHub</a>
+			</div>
+		</header>
+
+		<div class="project-hero">
+			<img src="../images/sports/passmap.jpg" alt="Player Pass Map" />
+		</div>
+
+		<div class="project-body">
+
+			<section class="project-section">
+				<h2>Overview</h2>
+				<p>Individual player pass maps break down a footballer's entire passing output for a match in a single visualisation. Each pass is drawn as a line from its origin to its destination, colour-coded by success or failure — creating an immediate picture of where and how a player distributes the ball.</p>
+				<p>Built for Nigeria's AFCON campaign, this project plots the full passing profiles for selected players, enabling comparison across multiple matches or against positional peers.</p>
+			</section>
+
+			<section class="project-section">
+				<h2>What the Map Shows</h2>
+				<ul class="insights-list">
+					<li><strong>Distribution Range:</strong> Short, safe passes cluster close to the player's average position, while long-range balls extend to the far end of the pitch — revealing a player's preferred passing range and ambition in possession.</li>
+					<li><strong>Accuracy Patterns:</strong> Completed passes (typically green) vs. incomplete passes (red) highlight which pass directions or distances carry the highest risk for a given player.</li>
+					<li><strong>Preferred Zones:</strong> Heatmap overlays show which areas of the pitch a player targets most often — useful for identifying fullback delivery zones, central midfield range, or attacking-third creativity.</li>
+				</ul>
+			</section>
+
+			<section class="project-cta">
+				<h2>Explore the Project</h2>
+				<p>View the interactive Tableau dashboard or browse the code on GitHub.</p>
+				<div class="project-actions">
+					<a href="https://public.tableau.com/app/profile/lekanelegbede/viz/NigeriaAFCONPassMap/Team" target="_blank" class="button primary">Dashboard</a>
+					<a href="https://github.com/Lekan-E/Sport-Projects/tree/main/Pass%20Map" target="_blank" class="button">GitHub</a>
+				</div>
+			</section>
+
+		</div>
+	</div></div></div>
+</body>
+</html>

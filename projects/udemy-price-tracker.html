@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Udemy Price Tracker | Olamilekan E</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../assets/css/main.css" />
+	<link rel="stylesheet" href="../assets/css/project.css" />
+</head>
+<body class="is-preload">
+	<script>document.body.setAttribute("data-theme", localStorage.getItem("theme") || "dark");</script>
+	<div id="wrapper"><div id="main"><div class="inner">
+
+		<nav class="project-nav">
+			<a href="../index.html#personal" class="back-link"><span class="back-arrow">&#8592;</span> Back to Portfolio</a>
+			<span class="project-nav-logo"><strong style="color:var(--accent-color)">OE</strong></span>
+			<button id="theme-toggle" title="Toggle light/dark mode" onclick="toggleTheme()">
+				<svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+				<svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+			</button>
+		</nav>
+		<script>
+			function toggleTheme() {
+				const isDark = document.body.getAttribute("data-theme") === "dark";
+				document.body.setAttribute("data-theme", isDark ? "light" : "dark");
+				localStorage.setItem("theme", isDark ? "light" : "dark");
+				document.getElementById("theme-icon-moon").style.display = isDark ? "none" : "block";
+				document.getElementById("theme-icon-sun").style.display = isDark ? "block" : "none";
+			}
+			(function() {
+				if ((localStorage.getItem("theme") || "dark") === "light") {
+					document.getElementById("theme-icon-moon").style.display = "none";
+					document.getElementById("theme-icon-sun").style.display = "block";
+				}
+			})();
+		</script>
+
+		<header class="project-header">
+			<div class="project-meta">
+				<span class="project-category">Automation &nbsp;·&nbsp; Web Scraping</span>
+				<span class="project-date">2024</span>
+			</div>
+			<h1 class="project-title">Price Monitoring and Email Alert System for Udemy Courses</h1>
+			<p class="project-subtitle">A Python automation tool that scrapes Udemy course prices daily and fires an email alert the moment a tracked course goes on sale — so you never miss a discount.</p>
+			<div class="project-tags">
+				<span class="tag">Python</span>
+				<span class="tag">Web Scraping</span>
+				<span class="tag">API</span>
+				<span class="tag">Process Automation</span>
+				<span class="tag">Email Alerts</span>
+			</div>
+			<div class="project-actions">
+				<a href="https://github.com/Lekan-E/Udemy-Course-Price-Tracker" target="_blank" class="button primary">GitHub</a>
+			</div>
+		</header>
+
+		<div class="project-hero">
+			<img src="../images/data/udemy_course.jpg" alt="Udemy Price Tracker" />
+		</div>
+
+		<div class="project-body">
+
+			<section class="project-section">
+				<h2>The Problem</h2>
+				<p>Udemy runs frequent flash sales that can drop course prices by 80–90%, but catching them requires either constant manual checking or pure luck. For learners tracking multiple courses across different categories, that's an unrealistic ask.</p>
+				<p>This project automates the entire process — scraping prices on a schedule, comparing them against a target threshold, and sending an immediate email notification when a course goes on sale.</p>
+			</section>
+
+			<section class="project-section">
+				<h2>How It Works</h2>
+				<div class="tech-steps">
+					<div class="tech-step">
+						<span class="step-num">01</span>
+						<div>
+							<h3>Web Scraping</h3>
+							<p>BeautifulSoup and Requests are used to scrape current prices from Udemy course pages. The scraper handles dynamic price elements and currency formatting to extract a clean numerical value.</p>
+						</div>
+					</div>
+					<div class="tech-step">
+						<span class="step-num">02</span>
+						<div>
+							<h3>Price Monitoring</h3>
+							<p>Scraped prices are compared against a user-defined target price threshold stored in a configuration file. Users can track multiple courses simultaneously, each with its own target price.</p>
+						</div>
+					</div>
+					<div class="tech-step">
+						<span class="step-num">03</span>
+						<div>
+							<h3>Email Alert System</h3>
+							<p>When a price drops at or below the target, Python's smtplib sends an automated email alert containing the course name, current price, and a direct link to purchase — with no manual intervention required.</p>
+						</div>
+					</div>
+					<div class="tech-step">
+						<span class="step-num">04</span>
+						<div>
+							<h3>Scheduled Execution</h3>
+							<p>The script runs on a daily schedule using a task scheduler, ensuring prices are checked consistently without the user needing to manually trigger a run.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="project-cta">
+				<h2>Explore the Project</h2>
+				<p>Browse the full code and setup instructions on GitHub.</p>
+				<div class="project-actions">
+					<a href="https://github.com/Lekan-E/Udemy-Course-Price-Tracker" target="_blank" class="button primary">GitHub</a>
+				</div>
+			</section>
+
+		</div>
+	</div></div></div>
+</body>
+</html>

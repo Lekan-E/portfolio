@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Ottawa Bike Theft Analysis | Olamilekan E</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../assets/css/main.css" />
+	<link rel="stylesheet" href="../assets/css/project.css" />
+</head>
+<body class="is-preload">
+	<script>document.body.setAttribute("data-theme", localStorage.getItem("theme") || "dark");</script>
+	<div id="wrapper"><div id="main"><div class="inner">
+
+		<nav class="project-nav">
+			<a href="../index.html#projects" class="back-link"><span class="back-arrow">&#8592;</span> Back to Portfolio</a>
+			<span class="project-nav-logo"><strong style="color:var(--accent-color)">OE</strong></span>
+			<button id="theme-toggle" title="Toggle light/dark mode" onclick="toggleTheme()">
+				<svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+				<svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+			</button>
+		</nav>
+		<script>
+			function toggleTheme() {
+				const isDark = document.body.getAttribute("data-theme") === "dark";
+				document.body.setAttribute("data-theme", isDark ? "light" : "dark");
+				localStorage.setItem("theme", isDark ? "light" : "dark");
+				document.getElementById("theme-icon-moon").style.display = isDark ? "none" : "block";
+				document.getElementById("theme-icon-sun").style.display = isDark ? "block" : "none";
+			}
+			(function() {
+				if ((localStorage.getItem("theme") || "dark") === "light") {
+					document.getElementById("theme-icon-moon").style.display = "none";
+					document.getElementById("theme-icon-sun").style.display = "block";
+				}
+			})();
+		</script>
+
+		<header class="project-header">
+			<div class="project-meta">
+				<span class="project-category">Crime Analysis &nbsp;·&nbsp; Dashboard</span>
+				<span class="project-date">2024</span>
+			</div>
+			<h1 class="project-title">Ottawa: Bike Theft Analysis</h1>
+			<p class="project-subtitle">An interactive Tableau dashboard visualising bike theft patterns across Ottawa — pinpointing high-risk neighbourhoods, peak theft seasons, and trends that cyclists and policymakers need to know.</p>
+			<div class="project-tags">
+				<span class="tag">Tableau</span>
+				<span class="tag">Geospatial</span>
+				<span class="tag">Crime Analysis</span>
+				<span class="tag">Dashboard</span>
+			</div>
+			<div class="project-actions">
+				<a href="https://public.tableau.com/app/profile/lekanelegbede/viz/BikeTheftOttawa/Overview" target="_blank" class="button primary">View Dashboard</a>
+			</div>
+		</header>
+
+		<div class="project-hero">
+			<img src="../images/data/Overview.png" alt="Ottawa Bike Theft Dashboard" />
+		</div>
+
+		<div class="project-body">
+
+			<section class="project-section">
+				<h2>Overview</h2>
+				<p>Cycling has grown significantly in Ottawa, but so has bike theft. Without a clear picture of where and when thefts happen, both riders and city planners are left guessing on prevention strategies.</p>
+				<p>This project visualises Ottawa's bike theft incident data in an interactive Tableau dashboard — giving users an at-a-glance view of theft concentrations, seasonal patterns, and neighbourhood risk levels.</p>
+			</section>
+
+			<section class="project-section">
+				<h2>Key Insights</h2>
+				<ul class="insights-list">
+					<li><strong>Neighbourhood Hotspots:</strong> A small number of neighbourhoods — particularly around the University of Ottawa campus, the ByWard Market, and Centretown — accounted for a disproportionate share of total thefts, consistent with high foot traffic and dense bike parking areas.</li>
+					<li><strong>Seasonal Surge:</strong> Theft incidents spiked sharply in the summer months (May–August), aligning with peak cycling season and longer daylight hours that increase bike usage and exposure.</li>
+					<li><strong>Time of Day:</strong> Daytime thefts during business hours were most common, suggesting opportunistic theft from unlocked or poorly secured bikes left at commercial and transit hubs.</li>
+				</ul>
+			</section>
+
+			<section class="project-section">
+				<h2>Dashboard Features</h2>
+				<div class="tech-steps">
+					<div class="tech-step">
+						<span class="step-num">01</span>
+						<div>
+							<h3>Geographic Map View</h3>
+							<p>An interactive map plots theft incidents across Ottawa wards, with colour coding by incident density to identify hotspot zones at a glance.</p>
+						</div>
+					</div>
+					<div class="tech-step">
+						<span class="step-num">02</span>
+						<div>
+							<h3>Temporal Trend Charts</h3>
+							<p>Monthly and yearly trend lines show how theft volumes have changed over time, with seasonal peaks and year-over-year comparisons clearly visualised.</p>
+						</div>
+					</div>
+					<div class="tech-step">
+						<span class="step-num">03</span>
+						<div>
+							<h3>Neighbourhood Breakdown</h3>
+							<p>A ranked bar chart breaks down incidents by neighbourhood, allowing users to compare risk levels across the city and identify areas needing targeted intervention.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="project-cta">
+				<h2>Explore the Dashboard</h2>
+				<p>Interact with the full Tableau dashboard to explore the data by neighbourhood, time period, and theft type.</p>
+				<div class="project-actions">
+					<a href="https://public.tableau.com/app/profile/lekanelegbede/viz/BikeTheftOttawa/Overview" target="_blank" class="button primary">View Dashboard</a>
+				</div>
+			</section>
+
+		</div>
+	</div></div></div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Sales Performance Overview | Olamilekan E</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../assets/css/main.css" />
+	<link rel="stylesheet" href="../assets/css/project.css" />
+</head>
+<body class="is-preload">
+	<script>document.body.setAttribute("data-theme", localStorage.getItem("theme") || "dark");</script>
+	<div id="wrapper"><div id="main"><div class="inner">
+
+		<nav class="project-nav">
+			<a href="../index.html#projects" class="back-link"><span class="back-arrow">&#8592;</span> Back to Portfolio</a>
+			<span class="project-nav-logo"><strong style="color:var(--accent-color)">OE</strong></span>
+			<button id="theme-toggle" title="Toggle light/dark mode" onclick="toggleTheme()">
+				<svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+				<svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+			</button>
+		</nav>
+		<script>
+			function toggleTheme() {
+				const isDark = document.body.getAttribute("data-theme") === "dark";
+				document.body.setAttribute("data-theme", isDark ? "light" : "dark");
+				localStorage.setItem("theme", isDark ? "light" : "dark");
+				document.getElementById("theme-icon-moon").style.display = isDark ? "none" : "block";
+				document.getElementById("theme-icon-sun").style.display = isDark ? "block" : "none";
+			}
+			(function() {
+				if ((localStorage.getItem("theme") || "dark") === "light") {
+					document.getElementById("theme-icon-moon").style.display = "none";
+					document.getElementById("theme-icon-sun").style.display = "block";
+				}
+			})();
+		</script>
+
+		<header class="project-header">
+			<div class="project-meta">
+				<span class="project-category">Sales Analytics &nbsp;·&nbsp; Dashboard</span>
+				<span class="project-date">2024</span>
+			</div>
+			<h1 class="project-title">Sales Performance Overview</h1>
+			<p class="project-subtitle">Analysing product sales records for a retail company to identify sales trends, surface top performers, and compare performance by product category and customer region.</p>
+			<div class="project-tags">
+				<span class="tag">Python</span>
+				<span class="tag">SQL</span>
+				<span class="tag">Tableau</span>
+				<span class="tag">Retail Analytics</span>
+				<span class="tag">Sales Trends</span>
+			</div>
+			<div class="project-actions">
+				<a href="https://public.tableau.com/app/profile/lekanelegbede/viz/MavinHRSalesOverview/Dashboard1" target="_blank" class="button primary">View Dashboard</a>
+			</div>
+		</header>
+
+		<div class="project-hero">
+			<img src="../images/data/sales performance.png" alt="Sales Performance Dashboard" />
+		</div>
+
+		<div class="project-body">
+
+			<section class="project-section">
+				<h2>Overview</h2>
+				<p>Understanding what sells, where it sells, and to whom is the foundation of any effective retail strategy. This project analyses a retail company's product sales records to surface the trends, category leaders, and regional patterns that should be driving business decisions.</p>
+				<p>The output is an interactive Tableau dashboard providing sales leadership with a clear, filterable view of performance across product categories and customer regions.</p>
+			</section>
+
+			<section class="project-section">
+				<h2>Key Findings</h2>
+				<ul class="insights-list">
+					<li><strong>Category Concentration:</strong> A handful of product categories drove the majority of total revenue, while a long tail of categories underperformed relative to their inventory allocation — pointing to potential SKU rationalisation opportunities.</li>
+					<li><strong>Regional Variation:</strong> Sales performance varied significantly by customer region, with certain areas showing consistently high order values alongside lower volumes — suggesting different pricing or bundling strategies may be warranted by market.</li>
+					<li><strong>Trend Identification:</strong> Month-over-month trend analysis revealed consistent growth in specific categories alongside declining performance in others, enabling proactive strategy adjustments ahead of quarters.</li>
+				</ul>
+			</section>
+
+			<section class="project-section">
+				<h2>Methodology</h2>
+				<div class="tech-steps">
+					<div class="tech-step">
+						<span class="step-num">01</span>
+						<div>
+							<h3>SQL Extraction</h3>
+							<p>Sales records were extracted and joined across product, order, and customer tables using SQL. Category hierarchies and regional mappings were applied during the extraction step.</p>
+						</div>
+					</div>
+					<div class="tech-step">
+						<span class="step-num">02</span>
+						<div>
+							<h3>Python Analysis</h3>
+							<p>Python was used to compute derived metrics — revenue per category, YoY growth rates, and average order values by region — before exporting cleaned data for visualisation.</p>
+						</div>
+					</div>
+					<div class="tech-step">
+						<span class="step-num">03</span>
+						<div>
+							<h3>Tableau Dashboard</h3>
+							<p>An interactive Tableau dashboard was built with category and region filters, trend sparklines, and ranked bar charts — giving sales teams a self-serve analytics tool for performance review.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="project-cta">
+				<h2>Explore the Dashboard</h2>
+				<p>Interact with the full sales performance dashboard on Tableau Public.</p>
+				<div class="project-actions">
+					<a href="https://public.tableau.com/app/profile/lekanelegbede/viz/MavinHRSalesOverview/Dashboard1" target="_blank" class="button primary">View Dashboard</a>
+				</div>
+			</section>
+
+		</div>
+	</div></div></div>
+</body>
+</html>

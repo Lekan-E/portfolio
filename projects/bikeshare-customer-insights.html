@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Bikeshare Customer Insights | Olamilekan E</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../assets/css/main.css" />
+	<link rel="stylesheet" href="../assets/css/project.css" />
+</head>
+<body class="is-preload">
+	<script>document.body.setAttribute("data-theme", localStorage.getItem("theme") || "dark");</script>
+	<div id="wrapper"><div id="main"><div class="inner">
+
+		<nav class="project-nav">
+			<a href="../index.html#projects" class="back-link"><span class="back-arrow">&#8592;</span> Back to Portfolio</a>
+			<span class="project-nav-logo"><strong style="color:var(--accent-color)">OE</strong></span>
+			<button id="theme-toggle" title="Toggle light/dark mode" onclick="toggleTheme()">
+				<svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+				<svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+			</button>
+		</nav>
+		<script>
+			function toggleTheme() {
+				const isDark = document.body.getAttribute("data-theme") === "dark";
+				document.body.setAttribute("data-theme", isDark ? "light" : "dark");
+				localStorage.setItem("theme", isDark ? "light" : "dark");
+				document.getElementById("theme-icon-moon").style.display = isDark ? "none" : "block";
+				document.getElementById("theme-icon-sun").style.display = isDark ? "block" : "none";
+			}
+			(function() {
+				if ((localStorage.getItem("theme") || "dark") === "light") {
+					document.getElementById("theme-icon-moon").style.display = "none";
+					document.getElementById("theme-icon-sun").style.display = "block";
+				}
+			})();
+		</script>
+
+		<header class="project-header">
+			<div class="project-meta">
+				<span class="project-category">Customer Analytics &nbsp;·&nbsp; Machine Learning</span>
+				<span class="project-date">2024</span>
+			</div>
+			<h1 class="project-title">Customer Insights Analysis for a Bike Company — Part 1</h1>
+			<p class="project-subtitle">Analysing over 5 million ride records to extract actionable insights on customer behaviour, drive member conversion, and provide data-backed recommendations for revenue and operational growth.</p>
+			<div class="project-tags">
+				<span class="tag">Python</span>
+				<span class="tag">KMeans</span>
+				<span class="tag">Tableau</span>
+				<span class="tag">Customer Segmentation</span>
+				<span class="tag">Business Analysis</span>
+			</div>
+			<div class="project-actions">
+				<a href="https://medium.com/@lekanelegbede414/analysis-to-boost-customer-acquisition-and-optimize-operations-3fbc2fef4bf7" target="_blank" class="button primary">Read Report</a>
+				<a href="https://github.com/Lekan-E/Analysis-for-a-Bike-Sharing-Company-to-Boost-Member-Conversion" target="_blank" class="button">GitHub</a>
+			</div>
+		</header>
+
+		<div class="project-hero">
+			<img src="../images/data/bike share.jpg" alt="Bikeshare Customer Insights" />
+		</div>
+
+		<div class="project-body">
+
+			<section class="project-section">
+				<h2>Overview</h2>
+				<p>A bike rental company with over 5 million annual ride records needed a clearer picture of who their customers were, how they used the service, and where untapped revenue growth was hiding. Converting casual riders to paid members was identified as the highest-value business opportunity.</p>
+				<p>This project delivers a comprehensive analysis of customer behaviour, segmentation, and product usage patterns — with targeted recommendations for marketing, member conversion, and operational efficiency.</p>
+			</section>
+
+			<section class="project-section">
+				<h2>Key Findings</h2>
+				<ul class="insights-list">
+					<li><strong>The Conversion Gap:</strong> Casual riders accounted for a significant share of total rides but generated lower per-ride revenue than members. Closing even a fraction of the conversion gap represented a substantial revenue opportunity.</li>
+					<li><strong>Usage Pattern Divergence:</strong> Members used the service for consistent weekday commutes, while casual riders concentrated usage on weekends and summer months — suggesting different messaging strategies are needed for each segment.</li>
+					<li><strong>High-Value Stations:</strong> A subset of stations generated disproportionate casual rider traffic, identifying prime locations for targeted membership conversion campaigns and promotions.</li>
+					<li><strong>Bike Type Preference:</strong> Classic bikes dominated member usage, while casual riders showed a higher preference for electric bikes — pointing to pricing and product bundling opportunities in the member tier.</li>
+				</ul>
+			</section>
+
+			<section class="project-section">
+				<h2>Methodology</h2>
+				<div class="tech-steps">
+					<div class="tech-step">
+						<span class="step-num">01</span>
+						<div>
+							<h3>Data Processing</h3>
+							<p>5M+ ride records were cleaned and processed in Python using Pandas. Missing station data, outlier durations, and erroneous coordinates were handled before analysis.</p>
+						</div>
+					</div>
+					<div class="tech-step">
+						<span class="step-num">02</span>
+						<div>
+							<h3>Customer Segmentation</h3>
+							<p>KMeans clustering was applied to segment riders by usage frequency, ride duration, time of use, and bike type preference — creating distinct customer profiles for targeted strategy development.</p>
+						</div>
+					</div>
+					<div class="tech-step">
+						<span class="step-num">03</span>
+						<div>
+							<h3>Tableau Visualisation</h3>
+							<p>Findings were built into an interactive Tableau dashboard covering customer segment profiles, station performance, seasonal trends, and product mix — supporting the business recommendations.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="project-cta">
+				<h2>Explore the Project</h2>
+				<p>Read the full analysis report or browse the code and data on GitHub.</p>
+				<div class="project-actions">
+					<a href="https://medium.com/@lekanelegbede414/analysis-to-boost-customer-acquisition-and-optimize-operations-3fbc2fef4bf7" target="_blank" class="button primary">Read Report</a>
+					<a href="https://github.com/Lekan-E/Analysis-for-a-Bike-Sharing-Company-to-Boost-Member-Conversion" target="_blank" class="button">GitHub</a>
+				</div>
+			</section>
+
+		</div>
+	</div></div></div>
+</body>
+</html>

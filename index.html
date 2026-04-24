@@ -32,7 +32,7 @@
 		  </script>
 
 		  <script>
-			  document.body.setAttribute("data-theme", "dark");
+			  document.body.setAttribute("data-theme", localStorage.getItem("theme") || "dark");
 			</script>
 
 		<!-- Wrapper -->
@@ -63,7 +63,32 @@
 												<li><a href="#creative">Designs</a></li>
 											</ul>
 										</nav>
+										<button id="theme-toggle" title="Toggle light/dark mode" onclick="toggleTheme()">
+											<svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+											<svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+										</button>
 									</header>
+
+									<script>
+										function toggleTheme() {
+											const isDark = document.body.getAttribute("data-theme") === "dark";
+											document.body.setAttribute("data-theme", isDark ? "light" : "dark");
+											localStorage.setItem("theme", isDark ? "light" : "dark");
+											document.getElementById("theme-icon-moon").style.display = isDark ? "none" : "block";
+											document.getElementById("theme-icon-sun").style.display = isDark ? "block" : "none";
+										}
+										// Restore saved preference
+										(function() {
+											const saved = localStorage.getItem("theme");
+											if (saved) {
+												document.body.setAttribute("data-theme", saved);
+												if (saved === "light") {
+													document.getElementById("theme-icon-moon").style.display = "none";
+													document.getElementById("theme-icon-sun").style.display = "block";
+												}
+											}
+										})();
+									</script>
 
 							<!-- Banner -->
 								<section id="banner">
@@ -301,7 +326,67 @@
 							<div class="posts scrollable" id="posts-projects">
 
 								<article>
-									<a href="https://github.com/Lekan-E/Marketing-and-Sale-Analysis/blob/main/README.md" target="_blank" class="image"><img src="images/data/marketingdash.png" alt="" /></a>
+									<a href="projects/xgboost-price-prediction.html" class="image"><img src="images/data/bike-app.png" alt="" /></a>
+									<h3>Price Prediction Regression Algorithm using xGBoost</h3>
+									<span class="project-tools">Streamlit | ML | XGBoost | Maps API</span>
+									<p>In this project, I implemented a price estimation algorithm using an XGBoost model trained on a year's worth of historical data. 
+										The app provides users with accurate estimates for trip fares and ride durations based user inputs such as start and end locations, membership type, and desired bike type. 
+										Integrated OpenAI ChatGPT-4.0 model to generate detailed route descriptions based on start and end stations.
+										Explore the application below!</p>
+									<ul class="actions">
+										<li><a href="https://bikeshare-app.streamlit.app/" target="_blank" class="button primary">App</a></li>
+										<li><a href="https://medium.com/@lekanelegbede414/xgboost-predicting-trip-duration-using-machine-learning-3510b5bc7ae2" target="_blank" class="button primary">Report</a></li>
+									</ul>
+								</article>
+
+								<article>
+									<a href="projects/ottawa-safety-clustering.html" class="image"><img src="images/data/clustermap2.png" alt="" /></a>
+									<h3>Ottawa: Grouping Wards by Safety using KMeans Clustering ML</h3>
+									<span class="project-tools">Python | Excel</span>
+									<p>This project ranks and group all 23 Ottawa wards by safety, providing actionable insights for residents, policymakers, and anyone considering a move to the city.
+										The goal of this project was to analyze safety across Ottawa's wards, grouping and ranking them from the safest to the most dangerous using machine learning and data visualization techniques.  </p>
+									<ul class="actions">
+										<li><a href="https://github.com/Lekan-E/Analysis-of-Ottawa-Neighbourhoods-by-Safety" target="_blank" class="button primary">Github</a></li>
+									</ul>
+								</article>
+
+								<article>
+									<a href="projects/canada-gas-prices.html" class="image"><img src="images/data/Gas Dashboard.png" alt="" /></a>
+									<h3>Canada: Gas Price Research Analysis from 1990 - 2024</h3>
+									<span class="project-tools">Python| Tableau | MySQL | Excel</span>
+									<P>This research project examines the changes in gas prices across Canada from 1990 to 2024, using monthly data from self-service filling stations 
+										provided by Statistics Canada. It focuses on price fluctuations across different provinces, uncovering insights on key metrics such as year-over-year changes, average costs, and seasonal price variations.</P>
+									<ul class="actions">
+										<li><a href="https://public.tableau.com/views/GasPriceDashboard_17278422265350/MainDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" class="button primary">Dashboard</a></li>
+										<li><a href="https://github.com/Lekan-E/Analysis-of-Canadian-Gas-Prices" target="_blank" class="button primary">Github</a></li>
+									</ul>
+								</article>
+
+								<article>
+									<a href="projects/ottawa-auto-theft.html" class="image"><img src="images/data/map.png" alt="" /></a>
+									<h3>Ottawa: Auto Theft Analysis</h3>
+									<span class="project-tools">SQL | Python</span>
+									<p>This project analysis over 7,000 car thefts recorded by the Ottawa Police Service (OPS) from 2018-2013, uncovering patterns in theft occurrences and analyze key trends, such as year-on-year changes,
+										recovery rates, financial loss amount, and geographical analysis to identify high-risk areas in Ottawa, providing insights and recommendations to stakeholders to improve security measures and recovery rates.  </p>
+									<ul class="actions">
+										<li><a href="https://github.com/Lekan-E/Ottawa-Auto-Theft-Analysis-2018-2023-" target="_blank" class="button primary">Github</a></li>
+										<li><a href="https://medium.com/@lekanelegbede414/2018-2023-auto-theft-trend-report-ottawa-4b1d665f8a8b" target="_blank" class="button primary">Report</a></li>
+									</ul>
+								</article>
+
+								<article>
+									<a href="projects/ottawa-bike-theft.html" class="image"><img src="images/data/Overview.png" alt="" /></a>
+									<h3>Ottawa: Bike Thefts Analysis</h3>
+									<span class="project-tools">Tableau</span>
+									<p>An interactive dashboard visualizing bike theft patterns across Ottawa neighbourhoods, highlighting high-risk areas and seasonal trends.</p>
+									<ul class="actions">
+										<li><a href="https://public.tableau.com/app/profile/lekanelegbede/viz/BikeTheftOttawa/Overview" target="_blank" class="button primary">Dashboard</a></li>
+									</ul>
+								</article>
+
+
+								<article>
+									<a href="projects/marketing-customer-insights.html" class="image"><img src="images/data/marketingdash.png" alt="" /></a>
 									<h3>Marketing and Customer Insights Analysis</h3>
 									<span class="project-tools">Tableau | SQL</span>
 									<P>This project analyzes data for an e-commerce company specializing in the sale of popular electronic products to
@@ -314,33 +399,7 @@
 								</article>
 
 								<article>
-									<a href="https://medium.com/@lekanelegbede414/analysis-to-boost-customer-acquisition-and-optimize-operations-3fbc2fef4bf7" target="_blank" class="image"><img src="images/data/bike share.jpg" alt="" /></a>
-									<h3>Customer Insights Analysis for a Bike Company - Part 1</h3>
-									<span class="project-tools">Python | KMeans | Tableau</span>
-									<p>This project analyzes the annual sale data for a bike rental company, with over 5 million records to extract insights and provide actionable
-										recommendations to drive customer and revenue growth, optimize targeted marketing, maximize product performance and improve operational efficiency.</p>
-									<ul class="actions">
-										<li><a href="https://medium.com/@lekanelegbede414/analysis-to-boost-customer-acquisition-and-optimize-operations-3fbc2fef4bf7" target="_blank" class="button primary">Report</a></li>
-										<li><a href="https://github.com/Lekan-E/Analysis-for-a-Bike-Sharing-Company-to-Boost-Member-Conversion" target="_blank" class="button primary">Github</a></li>
-									</ul>
-								</article>
-
-								<article>
-									<a href="https://bikeshare-app.streamlit.app/" target="_blank" class="image"><img src="images/data/bike-app.png" alt="" /></a>
-									<h3>Bike Rental Fare Prediction App using xGBoost ML - Part 2</h3>
-									<span class="project-tools">Streamlit | ML | XGBoost | Maps API</span>
-									<p>In this project, I developed a user-friendly web application powered by an XGBoost model trained on historical data. 
-										The app provides users with accurate estimates for trip fares and ride durations based user inputs such as start and end locations, membership type, and bike type. 
-										Integrated OpenAI ChatGPT-4.0 model to generate detailed route descriptions based on start and end stations.
-										Explore the application below!</p>
-									<ul class="actions">
-										<li><a href="https://bikeshare-app.streamlit.app/" target="_blank" class="button primary">App</a></li>
-										<li><a href="https://medium.com/@lekanelegbede414/xgboost-predicting-trip-duration-using-machine-learning-3510b5bc7ae2" target="_blank" class="button primary">Report</a></li>
-									</ul>
-								</article>
-
-								<article>
-									<a href="https://github.com/Lekan-E/Sports-League-Booking-and-Registration-System" target="_blank" class="image"><img src="images/data/portfolio db image.jpg" alt="" /></a>
+									<a href="projects/sports-league-database.html" class="image"><img src="images/data/portfolio db image.jpg" alt="" /></a>
 									<h3>Database Design: A Sports League Booking and Automation System</h3>
 									<span class="project-tools">SQL</span>
 									<p>A comprehensive database to automate various processes for a sports league including creating new leagues, handling team signups, managing field rentals and payments, updating user records and processing cancellations.
@@ -351,42 +410,7 @@
 								</article>
 
 								<article>
-									<a href="https://github.com/Lekan-E/Analysis-of-Ottawa-Neighbourhoods-by-Safety" target="_blank" class="image"><img src="images/data/clustermap2.png" alt="" /></a>
-									<h3>Ottawa Neighbourhoods Safety Analysis using KMeans Clustering ML</h3>
-									<span class="project-tools">Python | Excel</span>
-									<p>This project ranks and group all 23 Ottawa wards by safety, providing actionable insights for residents, policymakers, and anyone considering a move to the city.
-										The goal of this project was to analyze safety across Ottawa's wards, grouping and ranking them from the safest to the most dangerous using machine learning and data visualization techniques.  </p>
-									<ul class="actions">
-										<li><a href="https://github.com/Lekan-E/Analysis-of-Ottawa-Neighbourhoods-by-Safety" target="_blank" class="button primary">Github</a></li>
-									</ul>
-								</article>
-
-								<article>
-									<a href="https://public.tableau.com/app/profile/lekanelegbede/viz/GasPriceDashboard_17278422265350/MainDashboard" target="_blank" class="image"><img src="images/data/Gas Dashboard.png" alt="" /></a>
-									<h3>Research Analysis on Canada's Gas Price from 1990 - 2024</h3>
-									<span class="project-tools">Python| Tableau | MySQL | Excel</span>
-									<P>This research project examines the changes in gas prices across Canada from 1990 to 2024, using monthly data from self-service filling stations 
-										provided by Statistics Canada. It focuses on price fluctuations across different provinces, uncovering insights on key metrics such as year-over-year changes, average costs, and seasonal price variations.</P>
-									<ul class="actions">
-										<li><a href="https://public.tableau.com/views/GasPriceDashboard_17278422265350/MainDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" class="button primary">Dashboard</a></li>
-										<li><a href="https://github.com/Lekan-E/Analysis-of-Canadian-Gas-Prices" target="_blank" class="button primary">Github</a></li>
-									</ul>
-								</article>
-
-								<article>
-									<a href="https://public.tableau.com/views/AutoTheftinOttawa2018-2023/AutoTheftMap?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" class="image"><img src="images/data/map.png" alt="" /></a>
-									<h3>Ottawa Auto Theft Trend - KPI Report</h3>
-									<span class="project-tools">SQL | Python</span>
-									<p>This project analysis over 7,000 car thefts recorded by the Ottawa Police Service (OPS) from 2018-2013, uncovering patterns in theft occurrences and analyze key trends, such as year-on-year changes,
-										recovery rates, financial loss amount, and geographical analysis to identify high-risk areas in Ottawa, providing insights and recommendations to stakeholders to improve security measures and recovery rates.  </p>
-									<ul class="actions">
-										<li><a href="https://github.com/Lekan-E/Ottawa-Auto-Theft-Analysis-2018-2023-" target="_blank" class="button primary">Github</a></li>
-										<li><a href="https://medium.com/@lekanelegbede414/2018-2023-auto-theft-trend-report-ottawa-4b1d665f8a8b" target="_blank" class="button primary">Report</a></li>
-									</ul>
-								</article>
-
-								<article>
-									<a href="https://public.tableau.com/app/profile/lekanelegbede/viz/HRDailyRidesDashboard/RideDashboard" target="_blank" class="image"><img src="images/data/Ride Dashboard.png" alt="" /></a>
+									<a href="projects/revenue-kpi-dashboard.html" class="image"><img src="images/data/Ride Dashboard.png" alt="" /></a>
 									<h3>An End-to-End Monthly Revenue KPI Dashboard</h3>
 									<span class="project-tools">Tableau</span>
 									<p>An end-to-end dashboard that tracks and provides stakeholders with detailed insights on company KPIs — revenue generated, total trips, and ride details such as duration, revenue, and start/end time station.</p>
@@ -396,7 +420,20 @@
 								</article>
 
 								<article>
-									<a href="https://public.tableau.com/app/profile/lekanelegbede/viz/MavinHRSalesOverview/Dashboard1" target="_blank" class="image"><img src="images/data/sales performance.png" alt="" /></a>
+									<a href="projects/bikeshare-customer-insights.html" class="image"><img src="images/data/bike share.jpg" alt="" /></a>
+									<h3>Customer Insights Analysis for a Bike Company - Part 1</h3>
+									<span class="project-tools">Python | KMeans | Tableau</span>
+									<p>This project analyzes the annual sale data for a bike rental company, with over 5 million records to extract insights and provide actionable
+										recommendations to drive customer and revenue growth, optimize targeted marketing, maximize product performance and improve operational efficiency.</p>
+									<ul class="actions">
+										<li><a href="https://medium.com/@lekanelegbede414/analysis-to-boost-customer-acquisition-and-optimize-operations-3fbc2fef4bf7" target="_blank" class="button primary">Report</a></li>
+										<li><a href="https://github.com/Lekan-E/Analysis-for-a-Bike-Sharing-Company-to-Boost-Member-Conversion" target="_blank" class="button primary">Github</a></li>
+									</ul>
+								</article>
+
+
+								<article>
+									<a href="projects/sales-performance.html" class="image"><img src="images/data/sales performance.png" alt="" /></a>
 									<h3>Sales Performance Overview</h3>
 									<span class="project-tools">Python | SQL | Tableau</span>
 									<p>Analyzing product sales records for a retail company to identify sales trends and performance by product category and customer region.</p>
@@ -405,16 +442,7 @@
 									</ul>
 								</article>
 
-								<article>
-									<a href="https://public.tableau.com/app/profile/lekanelegbede/viz/BikeTheftOttawa/Overview" target="_blank" class="image"><img src="images/data/Overview.png" alt="" /></a>
-									<h3>Bike Thefts in Ottawa</h3>
-									<span class="project-tools">Tableau</span>
-									<p>An interactive dashboard visualizing bike theft patterns across Ottawa neighbourhoods, highlighting high-risk areas and seasonal trends.</p>
-									<ul class="actions">
-										<li><a href="https://public.tableau.com/app/profile/lekanelegbede/viz/BikeTheftOttawa/Overview" target="_blank" class="button primary">Dashboard</a></li>
-									</ul>
-								</article>
-
+								
 							</div><!-- end .posts.scrollable -->
 							</div><!-- end .posts-scroll-wrapper -->
 
@@ -438,7 +466,7 @@
 							<div class="posts scrollable" id="posts-personal">
 
 								<article>
-									<a href="https://github.com/Lekan-E/Udemy-Course-Price-Tracker" target="_blank" class="image"><img src="images/data/udemy_course.jpg" alt="" /></a>
+									<a href="projects/udemy-price-tracker.html" class="image"><img src="images/data/udemy_course.jpg" alt="" /></a>
 									<h3>Price Monitoring and Email Alert System for Udemy Courses</h3>
 									<span class="project-tools">Python | API | Process Automation</span>
 									<p>Web scraping to collect and monitor daily price trends of Udemy courses. Includes an email notification feature that alerts users when courses go on sale.</p>
@@ -448,7 +476,7 @@
 								</article>
 
 								<article>
-									<a href="https://public.tableau.com/app/profile/lekanelegbede/viz/BayerLeverkusen-Invincibles/DashboardLeagueTable" target="_blank" class="image"><img src="images/data/leverkusen.jpg" alt="" /></a>
+									<a href="projects/bayer-leverkusen.html" class="image"><img src="images/data/leverkusen.jpg" alt="" /></a>
 									<h3>Analysis of Bayer Leverkusen 2023/24 Unbeaten Season</h3>
 									<span class="project-tools">Statsbomb API | Python | Tableau</span>
 									<p>An analysis of over 130,000 event data on Bayer Leverkusen's invincible season using Statsbomb API in Python and Tableau. After going an entire 34-game season unbeaten, I decided to obtain insights into how Bayer Leverkusen were able to achieve this.</p>
@@ -459,7 +487,7 @@
 								</article>
 
 								<article>
-									<a href="https://drive.google.com/file/d/1J2A8FqRaQfT-kiX4X8rQEu15248x4ucq/view?usp=sharing" target="_blank" class="image"><img src="images/sports/matchreport.png" alt="" /></a>
+									<a href="projects/euros-2024-finals.html" class="image"><img src="images/sports/matchreport.png" alt="" /></a>
 									<h3>Mens EUROs 2024 Finals Report</h3>
 									<span class="project-tools">Statsbomb API | Python | Tableau</span>
 									<p>A comprehensive post-match tactical report for the UEFA Euro 2024 Final between Spain and England, covering match dynamics and player performances.</p>
@@ -470,7 +498,7 @@
 								</article>
 
 								<article>
-									<a href="https://youtu.be/ZMftKxuL9T4?si=7GQTNx6GHCJFU-xt" target="_blank" class="image"><img src="images/sports/avgposition.png" alt="" /></a>
+									<a href="projects/avg-player-position.html" class="image"><img src="images/sports/avgposition.png" alt="" /></a>
 									<h3>Average Team &amp; Player Position</h3>
 									<span class="project-tools">Python | Statsbomb API</span>
 									<p>Provides insights into team shape and structure, individual player roles, and defensive/offensive balance.</p>
@@ -481,7 +509,7 @@
 								</article>
 
 								<article>
-									<a href="https://public.tableau.com/app/profile/lekanelegbede/viz/CombinedGameShotmap/Goalmap" target="_blank" class="image"><img src="images/sports/goalmap.png" alt="" /></a>
+									<a href="projects/combined-shotmap.html" class="image"><img src="images/sports/goalmap.png" alt="" /></a>
 									<h3>Combined Game Shotmap</h3>
 									<span class="project-tools">Python | Tableau</span>
 									<p>A visual summary of total shots, shots on target, and goals scored by each team — offering insights into shooting accuracy and effectiveness.</p>
@@ -492,7 +520,7 @@
 								</article>
 
 								<article>
-									<a href="https://public.tableau.com/app/profile/lekanelegbede/viz/AFCONFinalPassNetwork/PassNetwork" target="_blank" class="image"><img src="images/sports/homepassmap.png" alt="" /></a>
+									<a href="projects/pass-network.html" class="image"><img src="images/sports/homepassmap.png" alt="" /></a>
 									<h3>Team Pass Network</h3>
 									<span class="project-tools">Python | Tableau</span>
 									<p>A visual representation of passes made between players in a match, showing how they connect with each other on the pitch.</p>
@@ -503,7 +531,7 @@
 								</article>
 
 								<article>
-									<a href="https://public.tableau.com/app/profile/lekanelegbede/viz/NigeriaAFCONPassMap/Team" target="_blank" class="image"><img src="images/sports/passmap.jpg" alt="" /></a>
+									<a href="projects/player-pass-map.html" class="image"><img src="images/sports/passmap.jpg" alt="" /></a>
 									<h3>Player Pass Map</h3>
 									<span class="project-tools">Python | Tableau</span>
 									<p>Visualizes all passes made by a player in a game to evaluate passing performance, distribution, accuracy, and areas for improvement.</p>
@@ -514,7 +542,7 @@
 								</article>
 
 								<article>
-									<a href="https://public.tableau.com/app/profile/lekanelegbede/viz/GoalContribution_17188303145080/GoalInvolvementDash" target="_blank" class="image"><img src="images/sports/goalinvolvement.png" alt="" /></a>
+									<a href="projects/player-goal-involvement.html" class="image"><img src="images/sports/goalinvolvement.png" alt="" /></a>
 									<h3>Player Goal Involvement</h3>
 									<span class="project-tools">Python | Tableau</span>
 									<p>Represents a player's involvement in goals through goals and assists, identifying patterns in preferred shooting locations or assist zones.</p>
@@ -525,7 +553,7 @@
 								</article>
 
 								<article>
-									<a href="https://public.tableau.com/app/profile/lekanelegbede/viz/AFCONShotMap/MainDashboard" target="_blank" class="image"><img src="images/sports/teamgoalmap.png" alt="" /></a>
+									<a href="projects/team-shotmap.html" class="image"><img src="images/sports/teamgoalmap.png" alt="" /></a>
 									<h3>Team Shotmap</h3>
 									<span class="project-tools">Python | Tableau</span>
 									<p>Accounts for shot outcomes including goals, shots off target, and saves — with key metrics like xG, xG Differential, and xG per Shot.</p>
@@ -536,7 +564,7 @@
 								</article>
 
 								<article>
-									<a href="https://public.tableau.com/app/profile/lekanelegbede/viz/BumpyChartWeek-WeekLeagueTable/BumpyDashboard?publish=yes" target="_blank" class="image"><img src="images/sports/leaguetable.png" alt="" /></a>
+									<a href="projects/league-table-bumpy.html" class="image"><img src="images/sports/leaguetable.png" alt="" /></a>
 									<h3>Bumpy Chart — Week-to-Week League Table</h3>
 									<span class="project-tools">Python | Tableau</span>
 									<p>Shows how each team's ranking fluctuated throughout the season, highlighting dramatic changes in form and comparing performance trends.</p>

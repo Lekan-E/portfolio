@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Combined Game Shotmap | Olamilekan E</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../assets/css/main.css" />
+	<link rel="stylesheet" href="../assets/css/project.css" />
+</head>
+<body class="is-preload">
+	<script>document.body.setAttribute("data-theme", localStorage.getItem("theme") || "dark");</script>
+	<div id="wrapper"><div id="main"><div class="inner">
+
+		<nav class="project-nav">
+			<a href="../index.html#personal" class="back-link"><span class="back-arrow">&#8592;</span> Back to Portfolio</a>
+			<span class="project-nav-logo"><strong style="color:var(--accent-color)">OE</strong></span>
+			<button id="theme-toggle" title="Toggle light/dark mode" onclick="toggleTheme()">
+				<svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+				<svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+			</button>
+		</nav>
+		<script>
+			function toggleTheme() {
+				const isDark = document.body.getAttribute("data-theme") === "dark";
+				document.body.setAttribute("data-theme", isDark ? "light" : "dark");
+				localStorage.setItem("theme", isDark ? "light" : "dark");
+				document.getElementById("theme-icon-moon").style.display = isDark ? "none" : "block";
+				document.getElementById("theme-icon-sun").style.display = isDark ? "block" : "none";
+			}
+			(function() {
+				if ((localStorage.getItem("theme") || "dark") === "light") {
+					document.getElementById("theme-icon-moon").style.display = "none";
+					document.getElementById("theme-icon-sun").style.display = "block";
+				}
+			})();
+		</script>
+
+		<header class="project-header">
+			<div class="project-meta">
+				<span class="project-category">Sports Analytics &nbsp;·&nbsp; Visualisation</span>
+				<span class="project-date">2024</span>
+			</div>
+			<h1 class="project-title">Combined Game Shotmap</h1>
+			<p class="project-subtitle">A side-by-side shot visualisation for both teams in a match — showing every shot taken, coloured by outcome and sized by xG, to reveal shooting accuracy, chance quality, and attacking effectiveness.</p>
+			<div class="project-tags">
+				<span class="tag">Python</span>
+				<span class="tag">Tableau</span>
+				<span class="tag">Statsbomb API</span>
+				<span class="tag">xG</span>
+				<span class="tag">Football Analytics</span>
+			</div>
+			<div class="project-actions">
+				<a href="https://youtu.be/TFodawhtVmk" target="_blank" class="button primary">YouTube</a>
+				<a href="https://github.com/Lekan-E/Sport-Projects/tree/main/Combined%20Game%20Shot%20Map" target="_blank" class="button">GitHub</a>
+			</div>
+		</header>
+
+		<div class="project-hero">
+			<img src="../images/sports/goalmap.png" alt="Combined Game Shotmap" />
+		</div>
+
+		<div class="project-body">
+
+			<section class="project-section">
+				<h2>Overview</h2>
+				<p>A shotmap is one of the most effective tools in football analytics for quickly understanding how a match played out from an attacking perspective. By plotting every shot's location, outcome, and xG value in a single view, analysts and fans get an instant read on which team created better chances and how efficiently they converted them.</p>
+				<p>This project generates a combined shotmap for both teams in any selected match, using Statsbomb event data and Python visualisation libraries to produce a clean, shareable graphic.</p>
+			</section>
+
+			<section class="project-section">
+				<h2>What the Viz Shows</h2>
+				<ul class="insights-list">
+					<li><strong>Shot Locations:</strong> Every shot is plotted at its exact coordinates on the pitch — immediately revealing whether a team was shooting from high-quality central positions or speculative long-range efforts.</li>
+					<li><strong>Outcomes:</strong> Shots are colour-coded by outcome (goal, saved, blocked, off target) giving an instant read on conversion rates and goalkeeper distribution across the match.</li>
+					<li><strong>xG Values:</strong> Bubble size corresponds to expected goals value — making it visually obvious which chances were the highest quality and whether teams are creating or converting above expectation.</li>
+				</ul>
+			</section>
+
+			<section class="project-section">
+				<h2>Technical Implementation</h2>
+				<div class="tech-steps">
+					<div class="tech-step">
+						<span class="step-num">01</span>
+						<div>
+							<h3>Shot Data Extraction</h3>
+							<p>All shot events for both teams are extracted from the Statsbomb match data, including location, outcome, xG value, player name, and minute of the match.</p>
+						</div>
+					</div>
+					<div class="tech-step">
+						<span class="step-num">02</span>
+						<div>
+							<h3>Python Visualisation</h3>
+							<p>mplsoccer is used to render both team's shots on a shared pitch canvas. Matplotlib handles colour mapping by outcome and bubble scaling by xG.</p>
+						</div>
+					</div>
+					<div class="tech-step">
+						<span class="step-num">03</span>
+						<div>
+							<h3>Tableau Version</h3>
+							<p>An interactive Tableau version allows users to filter by team, outcome, and match period — enabling more detailed exploration of the shot data beyond the static Python output.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="project-cta">
+				<h2>Explore the Project</h2>
+				<p>Watch the walkthrough on YouTube or browse the full code on GitHub.</p>
+				<div class="project-actions">
+					<a href="https://youtu.be/TFodawhtVmk" target="_blank" class="button primary">YouTube</a>
+					<a href="https://github.com/Lekan-E/Sport-Projects/tree/main/Combined%20Game%20Shot%20Map" target="_blank" class="button">GitHub</a>
+				</div>
+			</section>
+
+		</div>
+	</div></div></div>
+</body>
+</html>
