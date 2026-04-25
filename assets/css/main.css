@@ -2270,6 +2270,11 @@ button,
   .header-nav ul li a:hover {
     color: var(--accent-color) !important; }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5em; }
+
   #header .logo {
     border-bottom: 0;
     color: inherit;
