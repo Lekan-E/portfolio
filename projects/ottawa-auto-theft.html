@@ -40,11 +40,11 @@
 				<span class="project-category">Crime Analysis &nbsp;·&nbsp; Geospatial</span>
 				<span class="project-date">2024</span>
 			</div>
-			<h1 class="project-title">Ottawa: Auto Theft Analysis 2018 – 2023</h1>
-			<p class="project-subtitle">Analysing over 7,000 vehicle thefts recorded by the Ottawa Police Service to uncover theft patterns, recovery rates, financial losses, and the city's highest-risk zones.</p>
+			<h1 class="project-title">Ottawa Auto Theft Analysis 2018 – 2023</h1>
+			<p class="project-subtitle">Car theft rates in Ottawa rose by 124.4% over five years. This report analyses 7,826 vehicle thefts — uncovering temporal patterns, high-risk neighbourhoods, recovery rates, and the most targeted vehicle manufacturers.</p>
 			<div class="project-tags">
-				<span class="tag">SQL</span>
 				<span class="tag">Python</span>
+				<span class="tag">SQL</span>
 				<span class="tag">Geospatial</span>
 				<span class="tag">Crime Analysis</span>
 				<span class="tag">Ottawa Police Service</span>
@@ -56,79 +56,110 @@
 		</header>
 
 		<div class="project-hero">
-			<img src="../images/data/map.png" alt="Ottawa Auto Theft Map" />
+			<img src="../images/data/map.png" alt="Ottawa Auto Theft Geographical Map" />
 		</div>
 
 		<div class="project-body">
 
 			<section class="project-section">
-				<h2>The Problem</h2>
-				<p>Auto theft in Canada reached a crisis point between 2018 and 2023, with Ottawa recording thousands of vehicle thefts annually. Beyond the personal cost to victims, the aggregate financial and social impact on the city demands a clear, data-driven understanding of where, when, and how these thefts occur.</p>
-				<p>This project analyses the complete Ottawa Police Service auto theft dataset for the six-year period — quantifying trends, mapping risk zones, and providing stakeholders with evidence to improve prevention and recovery outcomes.</p>
-			</section>
-
-			<section class="project-section">
-				<h2>The Data</h2>
-				<div class="data-sources">
-					<div class="data-source-card">
-						<span class="data-num">7,000+</span>
-						<h3>Theft Records</h3>
-						<p>Complete Ottawa Police Service auto theft incident log from 2018 to 2023, including date, location, and recovery status.</p>
-					</div>
-					<div class="data-source-card">
-						<span class="data-num">6</span>
-						<h3>Years Covered</h3>
-						<p>Six consecutive years of data capturing pre-pandemic, pandemic, and post-pandemic theft trends.</p>
-					</div>
-					<div class="data-source-card">
-						<span class="data-num">OPS Open Data</span>
-						<h3>Data Source</h3>
-						<p>Ottawa Police Service open data portal — the authoritative source for crime records in the city.</p>
-					</div>
-				</div>
-			</section>
-
-			<section class="project-section">
-				<h2>Key Findings</h2>
+				<h2>Executive Summary</h2>
+				<p>In Ottawa, an average of four vehicles are stolen every day. After the historically high auto theft trends in 2022, the data in this report illustrates the National Auto Theft Crisis. Auto theft data represents vehicle styles such as cars, SUVs, trucks, motorcycles, vans, trailers, ATVs, snowmobiles, and motor homes.</p>
+				<p>In 2023, the Ottawa Police Service reported over 1,994 stolen vehicles, amounting to approximately <strong>$26.6 million in loss value</strong>, with a recovery rate of 57%. Barrhaven and Orleans neighbourhoods remain hotspots for auto thefts across the city, with the highest number of auto thefts and the lowest recovery rates.</p>
+				<p>The top priorities to make a meaningful impact on the auto theft crisis in Ottawa are:</p>
 				<ul class="insights-list">
-					<li><strong>Year-on-Year Surge:</strong> Auto theft incidents increased sharply from 2021 onward, with 2022 and 2023 recording the highest volumes in the six-year period — reflecting a national trend driven by organised vehicle export rings targeting keyless-entry vehicles.</li>
-					<li><strong>Low Recovery Rates:</strong> A significant proportion of stolen vehicles were never recovered, pointing to the organised, export-driven nature of many thefts where vehicles are moved across borders rapidly after theft.</li>
-					<li><strong>High-Risk Geographies:</strong> Theft incidents were concentrated in specific Ottawa neighbourhoods and commercial corridors, with certain postal code areas accounting for a disproportionate share of total incidents.</li>
-					<li><strong>Financial Impact:</strong> Estimated financial losses across the six-year period ran into tens of millions of dollars when accounting for vehicle values and insurance costs — a significant economic burden on the city.</li>
-					<li><strong>Time Patterns:</strong> Overnight hours (10pm–4am) accounted for the majority of incidents, with weekends showing elevated theft rates consistent with reduced street activity and surveillance.</li>
+					<li>Preventing vehicles from being stolen in the first place through effective anti-theft measures by manufacturers.</li>
+					<li>Placing a strong emphasis on information sharing and data-driven partnerships.</li>
+				</ul>
+				<p>By understanding why auto theft trends are happening, organisations and decision-makers dedicated to preventing auto theft can effectively collaborate to create solutions. This report aims to provide key stakeholders with the information and insights to support a collective and collaborative approach to ending auto theft in Ottawa.</p>
+			</section>
+
+			<section class="project-section">
+				<h2>Temporal Analysis</h2>
+				<p>Auto theft in Ottawa has shown fluctuating trends over the years, with a slight decline in 2023 following a record-high year in 2022. Despite this, theft rates have surged dramatically since 2018, emphasising the need for targeted prevention strategies based on peak times and daily patterns.</p>
+
+				<div class="project-image-row project-image-centered">
+					<img src="https://raw.githubusercontent.com/Lekan-E/Ottawa-Auto-Theft-Analysis-2018-2023-/e3eb68ebfa408e18a62bf60f201b27400b3cda02/Images/No.%20Thefts%20by%20Year.png" alt="Number of Thefts by Year" />
+				</div>
+
+				<ul class="insights-list">
+					<li>Following a historically high year in 2022 with 2,033 recorded thefts, auto theft in Ottawa experienced a slight year-over-year (YoY) decrease of <strong>–2.1%</strong> in 2023. However, overall trends show a significant increase of <strong>+123.8%</strong> in thefts between 2018–2023.</li>
+					<li>Thefts showed a continuous upward trend throughout the year, with rates peaking in October and November at about 5 thefts per day. While there was a noticeable dip in monthly rates at the start of the year, the data does not indicate strong seasonality.</li>
+					<li>Weekends accounted for <strong>26.3%</strong> of thefts, suggesting that thefts are more likely to occur on weekdays, possibly due to less vigilance during regular work or commute times.</li>
+					<li>Over <strong>58%</strong> of thefts occur in the evenings and nighttime hours (8 PM – 3 AM), with a significant 40% during the evenings — highlighting the significance of implementing additional home surveillance features during these high-risk periods to deter thefts.</li>
 				</ul>
 			</section>
 
 			<section class="project-section">
-				<h2>Methodology</h2>
-				<div class="tech-steps">
-					<div class="tech-step">
-						<span class="step-num">01</span>
-						<div>
-							<h3>SQL Data Processing</h3>
-							<p>Raw incident data was imported and queried in SQL to aggregate theft counts by year, month, neighbourhood, and recovery status. YoY change rates were calculated using window functions.</p>
-						</div>
-					</div>
-					<div class="tech-step">
-						<span class="step-num">02</span>
-						<div>
-							<h3>Python Analysis</h3>
-							<p>Python (Pandas, Matplotlib) was used for deeper trend analysis, financial loss estimation, and time-of-day breakdowns. Geocoding was applied to convert address data into mappable coordinates.</p>
-						</div>
-					</div>
-					<div class="tech-step">
-						<span class="step-num">03</span>
-						<div>
-							<h3>Geospatial Mapping</h3>
-							<p>Incident locations were plotted on an Ottawa ward map to identify theft hotspots. Density maps highlighted the highest-risk zones for targeted policing and resident awareness.</p>
-						</div>
-					</div>
+				<h2>Geographical Analysis</h2>
+				<p>High-risk neighbourhoods and residential areas, particularly in the East and West, have emerged as hotspots, highlighting distinct geographical patterns in theft activity.</p>
+
+				<div class="project-image-row project-image-centered">
+					<img src="https://raw.githubusercontent.com/Lekan-E/Ottawa-Auto-Theft-Analysis-2018-2023-/e3eb68ebfa408e18a62bf60f201b27400b3cda02/Images/Total%20%23%20Thefts%20by%20Division.png" alt="Total Thefts by Division" />
+				</div>
+
+				<ul class="insights-list">
+					<li>Auto theft across Ottawa from 2018–2023 has increased significantly: <strong>+205.7%</strong> in the West, <strong>+139.2%</strong> in the East, and <strong>+30.9%</strong> in Central Ottawa.</li>
+					<li>East Ottawa consistently reported the highest number of thefts, accounting for over <strong>41%</strong> of thefts during this period — likely influenced by its proximity to the Port of Montreal, a key export hub for stolen vehicles.</li>
+					<li>The neighbourhoods of Barrhaven, Orleans, and Centretown were the highest-risk areas, with a total combined loss of approximately <strong>$17.7 million</strong>.</li>
+					<li>High theft density correlates with residential areas, particularly in densely populated neighbourhoods in the West and East, compared to Central Ottawa where commercial activity is more prevalent.</li>
+				</ul>
+
+				<div class="project-image-row project-image-centered">
+					<img src="https://raw.githubusercontent.com/Lekan-E/Ottawa-Auto-Theft-Analysis-2018-2023-/e3eb68ebfa408e18a62bf60f201b27400b3cda02/Images/Sheet%208%20(2).png" alt="Theft Hotspot Map by Neighbourhood" />
+				</div>
+			</section>
+
+			<section class="project-section">
+				<h2>Vehicle Attributes</h2>
+
+				<div class="project-image-row project-image-centered">
+					<img src="https://raw.githubusercontent.com/Lekan-E/Ottawa-Auto-Theft-Analysis-2018-2023-/e3eb68ebfa408e18a62bf60f201b27400b3cda02/Images/Theft%20by%20Make.png" alt="Theft by Vehicle Make" />
+				</div>
+
+				<ul class="insights-list">
+					<li><strong>Toyota</strong> vehicles accounted for <strong>21.8%</strong> of auto thefts, with the 2018, 2019, 2021 and 2022 Highlander SUV models being the most targeted — primarily attributed to their demand in international markets and weaker security features.</li>
+					<li>The majority of vehicle thefts (<strong>52.9%</strong>) in Ottawa involved vehicles made in 2017 or newer ($76.7 million in loss value), as organised crime rings focus on stealing new and luxury vehicles for maximum profit through overseas sales.</li>
+					<li>This is further illustrated by the recovery rate of <strong>50.9%</strong> for newer models, suggesting many are being exported overseas through the Ports for resale.</li>
+					<li><strong>Automobiles</strong> (sedans, coupes, and hatchbacks) were the most stolen vehicle type, accounting for <strong>58.7%</strong> of thefts.</li>
+					<li>Other frequently stolen brands include Honda, Ford, Jeep, and Lexus, collectively representing a loss value of <strong>$36.6 million</strong>.</li>
+				</ul>
+			</section>
+
+			<section class="project-section">
+				<h2>Recovery Rates</h2>
+				<p>Between 2018 and 2023, there were 7,826 recorded vehicle thefts in Ottawa, with only <strong>57.2%</strong> of vehicles being recovered. Recovery trends have declined over time, dropping from 63.9% in 2018 to 55.7% in 2023, despite a 2.9% year-over-year increase from 2022.</p>
+
+				<div class="project-image-row project-image-centered">
+					<img src="https://raw.githubusercontent.com/Lekan-E/Ottawa-Auto-Theft-Analysis-2018-2023-/2a17cf35dcc0a2afc80884b2cc0a254ab414d67f/Images/Recovery%20Rate%202.png" alt="Recovery Rate by Year" />
+				</div>
+
+				<ul class="insights-list">
+					<li><strong>Hyundai</strong> vehicles had the highest recovery rate (<strong>83.1%</strong>) among cars with at least 200 reported thefts — likely indicating lower demand on the black market, with an average stolen value of approximately $3,131. This suggests these cars were primarily stolen to commit other crimes rather than for resale.</li>
+					<li><strong>Lexus</strong> vehicles had the lowest recovery rate (<strong>40.2%</strong>) among cars with at least 200 reported thefts, with only 179 recovered from 483 stolen. The average value of these stolen vehicles was approximately $13,170 — suggesting most were exported overseas by organised criminal groups.</li>
+					<li>Vehicles manufactured in 2017 or newer had a significantly lower recovery rate (<strong>51.4%</strong>) compared to those manufactured before 2017 (<strong>71.9%</strong>), for models with at least 100 reported thefts.</li>
+					<li>The disparity in recovery rates could stem from theft techniques, resale demand, and tracking capabilities. Toyota and Lexus, despite being popular targets, have notably lower recovery rates — underscoring the need for enhanced security measures for these brands.</li>
+				</ul>
+			</section>
+
+			<section class="project-section">
+				<h2>Solutions and Recommendations</h2>
+				<ul class="insights-list">
+					<li><strong>Enhanced Security for High-Risk Areas:</strong> Increase police and security presence in high-risk neighbourhoods, particularly in the East, during peak theft periods at night (8 PM – 3 AM).</li>
+					<li><strong>Improved Vehicle Anti-Theft and Tracking Features:</strong> Collaborate with automakers — particularly Toyota, Honda, Ford, Jeep, and Lexus — to improve anti-theft systems, address vulnerabilities exploited by criminal groups, and enhance car tracking systems to improve recovery rates.</li>
+					<li><strong>Community Awareness and Information Sharing:</strong> Place a strong emphasis on information sharing and data-driven partnerships amongst communities. Launch awareness campaigns targeting residents in high-risk neighbourhoods about theft prevention measures, such as smart surveillance systems.</li>
+				</ul>
+			</section>
+
+			<section class="project-section">
+				<h2>Dashboard</h2>
+				<div class="project-image-row project-image-centered">
+					<img src="https://raw.githubusercontent.com/Lekan-E/Ottawa-Auto-Theft-Analysis-2018-2023-/e3eb68ebfa408e18a62bf60f201b27400b3cda02/Images/Dashboard%201.png" alt="Ottawa Auto Theft Analysis Dashboard" />
 				</div>
 			</section>
 
 			<section class="project-cta">
 				<h2>Explore the Project</h2>
-				<p>Read the full trend report or explore the code and data on GitHub.</p>
+				<p>Read the full trend report on Medium or explore the code and data on GitHub.</p>
 				<div class="project-actions">
 					<a href="https://medium.com/@lekanelegbede414/2018-2023-auto-theft-trend-report-ottawa-4b1d665f8a8b" target="_blank" class="button primary">Read Report</a>
 					<a href="https://github.com/Lekan-E/Ottawa-Auto-Theft-Analysis-2018-2023-" target="_blank" class="button">GitHub</a>
