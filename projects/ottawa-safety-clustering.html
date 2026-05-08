@@ -1,11 +1,38 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Ottawa Safety Clustering | Olamilekan E</title>
+	<title>Ottawa Neighbourhood Safety Clustering | Olamilekan E</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="../assets/css/main.css" />
 	<link rel="stylesheet" href="../assets/css/project.css" />
+	<style>
+		.report-table {
+			width: 100%;
+			border-collapse: collapse;
+			margin: 1.5rem 0 2rem 0;
+			font-size: 0.88em;
+		}
+		.report-table th {
+			background: var(--accent-color);
+			color: #fff;
+			padding: 0.6rem 0.9rem;
+			text-align: left;
+			font-weight: 600;
+		}
+		.report-table td {
+			padding: 0.55rem 0.9rem;
+			border-bottom: 1px solid var(--border-color);
+			color: var(--text-color);
+			vertical-align: top;
+		}
+		.report-table tr:last-child td {
+			border-bottom: none;
+		}
+		.report-table tr:nth-child(even) td {
+			background: rgba(128,128,128,0.05);
+		}
+	</style>
 </head>
 <body class="is-preload">
 	<script>document.body.setAttribute("data-theme", localStorage.getItem("theme") || "dark");</script>
@@ -38,88 +65,180 @@
 		<header class="project-header">
 			<div class="project-meta">
 				<span class="project-category">Machine Learning &nbsp;·&nbsp; Geospatial Analysis</span>
-				<span class="project-date">2024</span>
+				<span class="project-date">2025</span>
 			</div>
-			<h1 class="project-title">Ottawa: Grouping Wards by Safety using KMeans Clustering</h1>
-			<p class="project-subtitle">Ranking and grouping all 23 Ottawa wards by safety — from safest to most dangerous — using machine learning and data visualisation to give residents, policymakers, and newcomers actionable insight.</p>
+			<h1 class="project-title">Mapping Ottawa Neighbourhoods into Six Distinct Safety Profiles</h1>
+			<p class="project-subtitle">A K-Means analysis of 104 Ottawa neighbourhoods across 348,000 incidents (2018–2025) reveals a city split between quiet residential communities and a concentrated band of high-crime urban areas — with Centretown forming a statistical cluster of one.</p>
 			<div class="project-tags">
 				<span class="tag">Python</span>
-				<span class="tag">KMeans Clustering</span>
-				<span class="tag">Excel</span>
-				<span class="tag">Geospatial</span>
+				<span class="tag">K-Means Clustering</span>
 				<span class="tag">Machine Learning</span>
+				<span class="tag">Geospatial</span>
+				<span class="tag">Ottawa Police Service</span>
 			</div>
 			<div class="project-actions">
-				<a href="https://github.com/Lekan-E/Analysis-of-Ottawa-Neighbourhoods-by-Safety" target="_blank" class="button primary">GitHub</a>
+				<a href="https://medium.com/@lekanelegbede414/mapping-ottawa-neighbourhoods-into-six-distinct-safety-profiles-233e5f0c4077" target="_blank" class="button primary">Read Report</a>
+				<a href="https://github.com/Lekan-E/City-of-Ottawa-Projects/tree/main/Neigbourhood%20Clustering%20with%20ML" target="_blank" class="button">GitHub</a>
 			</div>
 		</header>
 
 		<div class="project-hero">
-			<img src="../images/data/clustermap2.png" alt="Ottawa Ward Safety Cluster Map" />
+			<img src="../images/projects/neighbourhoodcluster/map.png" alt="Ottawa Neighbourhood Safety Cluster Map" />
 		</div>
 
 		<div class="project-body">
 
 			<section class="project-section">
-				<h2>The Problem</h2>
-				<p>Whether you are a family choosing where to settle, a policymaker allocating safety resources, or a researcher studying urban crime, understanding relative safety across Ottawa's wards is valuable — but rarely presented in a clear, comparable format.</p>
-				<p>This project set out to objectively rank and cluster all 23 Ottawa wards by safety level using publicly available crime and incident data, letting the data — not perception — define what "safe" means.</p>
+				<h2>Overview</h2>
+				<p>Ottawa presents itself as one of Canada's most livable cities, but beneath that lies a pronounced safety divide. A machine learning analysis of eight years of police and crime data across 104 neighbourhoods reveals that where you live in Ottawa has a dramatic effect on your exposure to crime.</p>
+				<p><em>Centretown</em> stands so far apart from every other neighbourhood that it forms a statistical cluster of one. Meanwhile, 42 rural and low-density areas see fewer than 1,000 incidents combined, and two downtown neighbourhoods account for a disproportionate share of the city's homicides and gun violence.</p>
+				<p>This report walks through five analyses, each building on the last, to map Ottawa's safety landscape from the city-wide down to the individual neighbourhood.</p>
 			</section>
 
 			<section class="project-section">
-				<h2>Approach</h2>
-				<p>Crime incident data from the Ottawa Police Service was cleaned and aggregated at the ward level. Key metrics — total incidents, incident rate per capita, and crime category breakdown — were computed for each ward before being passed to the clustering model.</p>
-				<div class="tech-steps">
-					<div class="tech-step">
-						<span class="step-num">01</span>
-						<div>
-							<h3>Data Collection &amp; Cleaning</h3>
-							<p>Ottawa Police Service open data was sourced, cleaned, and standardised. Duplicate records, missing ward codes, and out-of-scope incident types were handled before analysis.</p>
-						</div>
-					</div>
-					<div class="tech-step">
-						<span class="step-num">02</span>
-						<div>
-							<h3>Feature Engineering</h3>
-							<p>Per-capita incident rates were calculated using census population data. Incident types were grouped into broader safety categories (violent, property, public order) to provide a balanced feature set.</p>
-						</div>
-					</div>
-					<div class="tech-step">
-						<span class="step-num">03</span>
-						<div>
-							<h3>KMeans Clustering</h3>
-							<p>KMeans clustering was applied to group wards into safety tiers. The optimal number of clusters was determined using the elbow method. Each ward was assigned a cluster label and ranked within its tier.</p>
-						</div>
-					</div>
-					<div class="tech-step">
-						<span class="step-num">04</span>
-						<div>
-							<h3>Visualisation</h3>
-							<p>Results were mapped geographically to show safety clusters across the city. Bar charts and heat maps illustrated per-ward rankings and the crime categories driving each cluster's classification.</p>
-						</div>
-					</div>
-				</div>
-			</section>
+				<h2>1. The City Divided — Safety Map</h2>
+				<p>The map shades each neighbourhood on a six-step green-to-dark-maroon gradient representing its safety cluster, from lowest crime (deep green) to highest (dark maroon). The highest-risk clusters concentrate in the urban core — Centretown, Byward Market, Lowertown, and their immediate surroundings. The suburban ring sits in the mid-range yellows and oranges. The outermost rural areas are a uniform deep green.</p>
+				<p>Six distinct safety clusters were identified using K-means clustering across 19 crime dimensions. Ranked from safest to highest-crime:</p>
 
-			<section class="project-section">
-				<h2>Key Findings</h2>
+				<table class="report-table">
+					<thead>
+						<tr><th>Rank</th><th>Cluster</th><th>Avg Crimes / Neighbourhood</th><th>Neighbourhoods</th><th>Population</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>1 (Safest)</td><td>3</td><td>804</td><td>42</td><td>173,332</td></tr>
+						<tr><td>2</td><td>5</td><td>1,950</td><td>14</td><td>135,838</td></tr>
+						<tr><td>3</td><td>0</td><td>2,152</td><td>22</td><td>225,217</td></tr>
+						<tr><td>4</td><td>4</td><td>5,847</td><td>18</td><td>275,440</td></tr>
+						<tr><td>5</td><td>1</td><td>11,785</td><td>7</td><td>73,755</td></tr>
+						<tr><td>6 (Highest)</td><td>2</td><td>52,597</td><td>1</td><td>24,994</td></tr>
+					</tbody>
+				</table>
+				
 				<ul class="insights-list">
-					<li><strong>Clear Safety Tiers:</strong> Wards clustered naturally into three distinct safety levels — high, moderate, and low — with no ambiguous borderline cases, suggesting strong separation in crime patterns across the city.</li>
-					<li><strong>Geographic Concentration:</strong> Lower-safety wards were concentrated in the urban core and inner suburbs, while outer wards and rural areas consistently ranked in the safest cluster.</li>
-					<li><strong>Crime Type Differences:</strong> High-incident wards were driven primarily by property crime, not violent crime — an important distinction for residents interpreting the rankings.</li>
+					<li>The safest cluster (3) holds 42 neighbourhoods — the largest by count — but most are sparsely populated or non-residential areas (cemeteries, industrial zones). Genuinely quiet residential communities include Kinburn, Pierces Corners, and Sarsfield.</li>
+					<li><strong>Cluster 2 contains exactly one neighbourhood: Centretown.</strong> With 52,597 recorded incidents, it logged more crime than the bottom 42 neighbourhoods combined.</li>
+					<li>Greenbelt neighbourhoods were excluded from the model as extreme outliers — their sparse population and land-use structure would create a distinct artificial cluster.</li>
 				</ul>
 			</section>
 
 			<section class="project-section">
-				<h2>Conclusion</h2>
-				<p>KMeans clustering provided a clear, data-driven framework for comparing ward safety across Ottawa. The output is directly useful to residents evaluating neighbourhoods, city planners targeting intervention resources, and journalists reporting on public safety trends.</p>
+				<h2>Analysis 2: What Kind of Crime? Composition by Cluster</h2>
+				<p>Not all clusters are dangerous in the same way. The stacked bar chart breaks each cluster's total crime into three categories — violent, property, and other — sorted from safest to highest-crime cluster.</p>
+
+				<div class="project-image-row project-image-centered">
+					<img src="../images/projects/neighbourhoodcluster/Crime type composition by cluster.png" alt="Crime Type Composition by Cluster" />
+				</div>
+
+				<ul class="insights-list">
+					<li>Across every cluster, <strong>property crime is the dominant category</strong>, accounting for the majority of incidents citywide.</li>
+					<li>The violent crime share rises noticeably in the highest-risk clusters. Clusters 1 and 2 carry the largest absolute violent crime burdens, while suburban and rural clusters show property crime shares approaching 70–80%.</li>
+					<li><strong>Centretown (Cluster 2)</strong> had 2,790 assaults and 22 shootings — its violent crime total alone would rank it among the top five neighbourhoods for overall volume.</li>
+					<li><strong>Cluster 1</strong> (Byward Market, Lowertown, Overbrook-McArthur, New Barrhaven/Stonebridge, West Centretown, Ledbury-Heron Gate, Vanier North) recorded 46 homicides and 137 shootings across just 7 neighbourhoods and 73,755 residents.</li>
+					<li><strong>Cluster 4</strong> (Sandy Hill, Glebe, Westboro, Elmvale, Hintonburg, Stittsville, Vanier South — 18 neighbourhoods, 275,440 residents) shows elevated property crime, driven by bike theft, mischief, and break-and-enter.</li>
+				</ul>
+			</section>
+
+			<section class="project-section">
+				<h2>Analysis 3: Are Police Resources Allocated to Match Risk?</h2>
+				<p>Each cluster is plotted on axes of total crime incidents per capita (x) vs. total Police Critical calls per capita (y). A dashed OLS trend line shows the expected relationship. Points above the line receive more critical-level police response than their crime rate predicts; points below receive less.</p>
+
+				<div class="project-image-row project-image-centered">
+					<img src="../images/projects/neighbourhoodcluster/police demand cs crime lvel by cluster.png" alt="Police Demand vs Crime Level by Cluster" />
+				</div>
+
+				<table class="report-table">
+					<thead>
+						<tr><th>Cluster</th><th>Description</th><th>Crimes Per Capita</th><th>Critical Calls Per Capita</th><th>vs. Trend</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>3</td><td>Rural / low-density</td><td>2.6649</td><td>0.0482</td><td>Below (under-serviced)</td></tr>
+						<tr><td>5</td><td>Low-mid suburban</td><td>0.5349</td><td>0.0151</td><td>Below (under-serviced)</td></tr>
+						<tr><td>0</td><td>Mid-suburban</td><td>0.2304</td><td>0.0085</td><td>Below (under-serviced)</td></tr>
+						<tr><td>4</td><td>Mixed urban / suburban</td><td>0.6337</td><td>0.028</td><td>Above (over-serviced)</td></tr>
+						<tr><td>1</td><td>High-crime urban core</td><td>1.4799</td><td>0.0517</td><td>Above (over-serviced)</td></tr>
+						<tr><td>2</td><td>Centretown</td><td>2.1044</td><td>0.0527</td><td>Above (over-serviced)</td></tr>
+					</tbody>
+				</table>
+
+				<ul class="insights-list">
+					<li><strong>Cluster 2 (Centretown)</strong> sits at the top-right — highest crime per capita and highest critical call rate. Its position on the trend line suggests policing levels are proportionate to its outsized crime volume.</li>
+					<li><strong>Cluster 3's</strong> high per-capita crime is a statistical artefact — its 42 neighbourhoods include non-residential areas where a handful of incidents in a population of 200 inflate the ratio dramatically. The absolute crime count is tiny and rarely warrants a critical-priority response.</li>
+					<li><strong>Clusters 5 and 0</strong> (Barrhaven, Hunt Club, Centrepointe) are genuine residential communities sitting slightly below the trend line — a meaningful signal of potential under-resourcing.</li>
+					<li><strong>Cluster 1</strong> receives significantly more critical calls than the trend predicts. With 46 homicides and 137 shootings across just 73,755 residents, this elevated response reflects genuine severity of violence rather than misallocation.</li>
+				</ul>
+			</section>
+
+			<section class="project-section">
+				<h2>Analysis 4: What Defines Each Cluster? — Crime Fingerprint</h2>
+				<p>The z-score heatmap is the analytical core of this report. Rather than showing raw counts, it reveals which crime types are disproportionately prevalent in each cluster relative to the city-wide average. Each cell shows standard deviations above (red) or below (blue) the mean.</p>
+
+				<div class="project-image-row project-image-centered">
+					<img src="../images/projects/neighbourhoodcluster/zsocre heatmap.png" alt="Feature Z-Score Heatmap by Cluster" />
+				</div>
+
+				<ul class="insights-list">
+					<li><strong>Cluster 2 (Centretown)</strong> is saturated red across every column — above the city average on every single crime type, with the most extreme scores on Bike Theft, Assaults, and Mischief.</li>
+					<li><strong>Cluster 1</strong> shows the most extreme z-scores on violent crime — Homicide, Shootings, and Assaults are all deeply red — while property crime is only moderately elevated. Its defining characteristic is concentrated, lethal violence in a small geographic area.</li>
+					<li><strong>Cluster 4</strong> is strongly red on Bike Theft and Theft $5,000 and Under, with moderately elevated Break and Enter — neighbourhoods with low gun violence but high opportunistic property crime.</li>
+					<li><strong>Clusters 3 and 5</strong> (rural and low-density outer suburbs) are uniformly blue across the board — below average on every crime type.</li>
+					<li><strong>Auto Theft</strong> spikes prominently in Cluster 1, driven by New Barrhaven/Stonebridge, which alone recorded 605 auto thefts — more than double any other neighbourhood. It also remains elevated across Cluster 4's suburban components.</li>
+				</ul>
+			</section>
+
+			<section class="project-section">
+				<h2>Analysis 5: How Confident Are the Cluster Assignments?</h2>
+				<p>The silhouette chart shows one bar per neighbourhood, grouped by cluster, sorted from lowest to highest silhouette score. Blue bars are well-assigned; red bars (score below zero) indicate a neighbourhood statistically closer to a neighbouring cluster than its own. The city-wide average silhouette score is <strong>0.186</strong> — a moderate fit indicating the six-cluster solution captures real structure, but some neighbourhoods genuinely sit on the boundary between safety profiles.</p>
+
+				<div class="project-image-row project-image-centered">
+					<img src="../images/projects/neighbourhoodcluster/silhouette score per neighbourhood.png" alt="Silhouette Score per Neighbourhood" />
+				</div>
+
+				<table class="report-table">
+					<thead>
+						<tr><th>Cluster</th><th>Avg Silhouette</th><th>Notes</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>3</td><td>0.381</td><td>Most internally consistent — rural / low-density areas well-separated</td></tr>
+						<tr><td>1</td><td>0.144</td><td>Moderate fit — high-crime urban neighbourhoods cluster tightly</td></tr>
+						<tr><td>5</td><td>0.133</td><td>Moderate fit</td></tr>
+						<tr><td>0</td><td>0.096</td><td>Wide spread of mid-suburban neighbourhoods</td></tr>
+						<tr><td>2</td><td>0.0</td><td>Centretown is so extreme it has no close peers</td></tr>
+						<tr><td>4</td><td>−0.092</td><td>Worst cluster — many neighbourhoods sit closer to another cluster</td></tr>
+					</tbody>
+				</table>
+
+				<ul class="insights-list">
+					<li><strong>Ottawa East (Cluster 4): −0.602</strong> is the single most misclassified neighbourhood — its crime profile sits closer to Cluster 1's high-crime urban pattern than the broader Cluster 4 mix.</li>
+					<li><strong>Cluster 4's negative average silhouette</strong> is the most significant finding: seven of the ten most uncertain neighbourhood assignments belong to this cluster. It spans too wide a range — from dense inner-city Sandy Hill to suburban Stittsville — suggesting it may benefit from being split into two sub-groups in future model iterations.</li>
+					<li>Other boundary cases include Rockcliffe–Manor Park (−0.312), Britannia Village (−0.254), and Civic Hospital–Central Park (−0.253).</li>
+				</ul>
+			</section>
+
+			<section class="project-section">
+				<h2>Key Findings at a Glance</h2>
+				<ul class="insights-list">
+					<li><strong>Centretown is in a class of its own</strong> — 52,597 incidents, more than the bottom 42 neighbourhoods combined. It forms a statistical cluster of one.</li>
+					<li><strong>Seven neighbourhoods drive the city's violence</strong> — Cluster 1 (Byward Market, Lowertown, Overbrook-McArthur, New Barrhaven/Stonebridge, West Centretown, Ledbury-Heron Gate, Vanier North): 46 homicides, 137 shootings, 73,755 residents.</li>
+					<li><strong>Overbrook-McArthur has the most shootings</strong> — 28 gun incidents, the highest of any single neighbourhood, ahead of Byward Market and Ledbury-Heron Gate (27 each).</li>
+					<li><strong>Lowertown has the most homicides</strong> — 10 over the analysis period, followed by New Barrhaven/Stonebridge (8) and Vanier North (8).</li>
+					<li><strong>New Barrhaven/Stonebridge leads in auto theft</strong> — 605 stolen vehicles, more than double the next-highest neighbourhood.</li>
+					<li><strong>42 neighbourhoods are in the safest cluster</strong> — genuinely low-crime residential communities include Kinburn, Stittsville, and Katimavik-Hazeldean.</li>
+					<li><strong>Police resourcing broadly tracks crime</strong> — suburban clusters 5 and 0 sit slightly below the trend; mixed Cluster 4 draws more police response than its crime rate alone predicts.</li>
+					<li><strong>Cluster 4 is the most uncertain grouping</strong> — avg silhouette of −0.092, with seven of the ten most boundary neighbourhoods. May warrant splitting in future models.</li>
+				</ul>
+			</section>
+
+			<section class="project-section">
+				<h2>Data Notes</h2>
+				<p>All data sourced from Ottawa Police Service open data and the Ottawa Neighbourhood Study (ONS). Datasets span 2018–2025 for most crime types; hate crime data extends to 2024 only (the most recent OPS release). Some minor neighbourhood boundary mismatches were resolved through fuzzy name matching and manual validation. Nine neighbourhoods with unresolvable boundary mismatches (primarily Greenbelt areas) were excluded from the analysis. Crime counts are totals across the full analysis period and are not annualised or population-adjusted in the raw figures (per-capita metrics appear where noted).</p>
 			</section>
 
 			<section class="project-cta">
 				<h2>Explore the Project</h2>
-				<p>Browse the full code, data, and visualisations on GitHub.</p>
+				<p>Read the full report on Medium or browse the code and visualisations on GitHub.</p>
 				<div class="project-actions">
-					<a href="https://github.com/Lekan-E/Analysis-of-Ottawa-Neighbourhoods-by-Safety" target="_blank" class="button primary">GitHub</a>
+					<a href="https://medium.com/@lekanelegbede414/mapping-ottawa-neighbourhoods-into-six-distinct-safety-profiles-233e5f0c4077" target="_blank" class="button primary">Read Report</a>
+					<a href="https://github.com/Lekan-E/City-of-Ottawa-Projects/tree/main/Neigbourhood%20Clustering%20with%20ML" target="_blank" class="button">GitHub</a>
 				</div>
 			</section>
 
